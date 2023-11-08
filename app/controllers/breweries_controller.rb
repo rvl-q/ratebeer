@@ -2,8 +2,13 @@ class BreweriesController < ApplicationController
   before_action :set_brewery, only: %i[ show edit update destroy ]
 
   # GET /breweries or /breweries.json
+  # def index
+  #   @breweries = Brewery.all
+  # end
   def index
     @breweries = Brewery.all
+ 
+    render :panimot
   end
 
   # GET /breweries/1 or /breweries/1.json
