@@ -4,23 +4,7 @@
 
 <div id="beers">
   <% @beers.each do |beer| %>
-    <div id="<%= dom_id beer %>">
-      <p>
-        <strong>Name:</strong>
-        <%= link_to beer.name, beer %>
-      </p>
-    
-      <p>
-        <strong>Style:</strong>
-        <%= beer.style %>
-      </p>
-    
-      <p>
-        <strong>Brewery:</strong>
-        <%= link_to beer.brewery.name, beer.brewery %>
-      </p>
-    
-    </div>
+    <%= render beer %>
   <% end %>
 </div>
 
