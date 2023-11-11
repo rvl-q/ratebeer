@@ -7,10 +7,8 @@ class Beer < ApplicationRecord
             return nil
         end
         c = self.ratings.count.to_f
-        ss = 0.0
-        self.ratings.each do |rat|
-            ss = ss + rat.score
-        end
-        ss / c
+        self.ratings.map do |r|
+          r.score
+        end.sum / c
     end
 end
