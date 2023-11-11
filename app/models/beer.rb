@@ -11,4 +11,8 @@ class Beer < ApplicationRecord
           r.score
         end.sum / c
     end
+
+    def to_s
+        "#{brewery.name}, #{self.name}"
+    end
 end
