@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   # get 'ratings/new', to:'ratings#new'
   # post 'ratings', to: 'ratings#create'
   resources :ratings, only: [:index, :new, :create, :destroy]
+  resource :session, only: [:new, :create, :destroy]
 end
