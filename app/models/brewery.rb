@@ -1,6 +1,9 @@
 class Brewery < ApplicationRecord
   include RatingAverage
 
+  validates :name, presence: true
+  validates :year, numericality: { only_integer: true, in: 1040..2022 }
+
   has_many :beers, dependent: :destroy
   has_many :ratings, through: :beers
 
