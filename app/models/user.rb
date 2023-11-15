@@ -5,4 +5,5 @@ class User < ApplicationRecord
                         length: { in: 3..30 }
 
   has_many :ratings
+  has_many :beers, through: :ratings
 end
