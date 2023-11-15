@@ -7,6 +7,16 @@
 <p>
   Has made <%= pluralize(@user.ratings.count, 'rating') %>, average rating <%= @user.average_rating %>
 </p>
+<h4>member of</h4>
+
+<ul>
+  <% @user.beer_clubs.each do |club| %>
+    <li>
+      <%= link_to club, club %>
+    </li>
+  <% end %>
+</ul>
+
 <h4>ratings</h4>
 
 <ul>
