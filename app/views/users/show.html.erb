@@ -21,13 +21,10 @@
 
 <ul>
   <% @user.ratings.each do |rating| %>
-    <li>
-      <%= rating.to_s %>
-      <%= link_to 'Delete', rating_path(rating.id),
-      data: {
-        "turbo-method": :delete
-      },
-      class: "link-secondary smooth" %>
+    <li><%= "#{rating.to_s}" %>
+      <% if @user == current_user %>
+        <%= link_to "Delete", rating, data: {turbo_method: :delete} %>
+      <% end %>
     </li>
   <% end %>
 </ul>
