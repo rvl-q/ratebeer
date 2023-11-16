@@ -1,9 +1,13 @@
 <h1>Join a beer club</h1>
 
-<%= form_for(@membership) do |f| %>
+<% if @beer_club_selection.empty? %>
+  There are no clubs to join.
+<% else %>
+  <%= form_for(@membership) do |f| %>
 
-  <%= f.select :beer_club_id, options_from_collection_for_select(@beer_clubs, :id, :to_s) %>
-  <%= f.hidden_field :user_id %>
-  <%= f.submit "join club" %>
+    <%= f.select :beer_club_id, options_from_collection_for_select(@beer_club_selection, :id, :to_s) %>
+    <%= f.hidden_field :user_id %>
+    <%= f.submit "join club" %>
 
+  <% end %>
 <% end %>
