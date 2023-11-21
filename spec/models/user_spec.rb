@@ -70,6 +70,12 @@ RSpec.describe User, type: :model do
       expect(user.favorite_beer).to eq(best)
     end
   end
+
+  describe "favorite_style" do
+    it "has method for determining the favorite style" do
+      expect(user).to respond_to(:favorite_style)
+    end
+  end
 end
 
 def create_beer_with_rating(object, score)
