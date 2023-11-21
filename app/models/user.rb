@@ -26,6 +26,9 @@ class User < ApplicationRecord
   end
 
   def favorite_brewery
+    return nil if ratings.empty?
+
+    ratings.first.beer.brewery
   end
 
   def style_average(record)
