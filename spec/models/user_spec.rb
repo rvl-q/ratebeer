@@ -73,9 +73,13 @@ RSpec.describe User, type: :model do
 
   describe "favorite_style" do
     let(:user){ FactoryBot.create(:user) }
-    
+
     it "has method for determining the favorite style" do
       expect(user).to respond_to(:favorite_style)
+    end
+
+    it "without ratings does not have a favorite style" do
+      expect(user.favorite_style).to eq(nil)
     end
   end
 end
