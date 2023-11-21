@@ -105,6 +105,10 @@ RSpec.describe User, type: :model do
     it "has method for determining the favorite brewery" do
       expect(user).to respond_to(:favorite_brewery)
     end
+
+    it "without ratings does not have a favorite brewey" do
+      expect(user.favorite_brewery).to eq(nil)
+    end
   end
 end
 
