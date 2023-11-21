@@ -22,16 +22,13 @@ class User < ApplicationRecord
   def favorite_style
     return nil if ratings.empty?
 
-    ratings.chunk { |r| r.beer.style }.map{ |b| style_average(b) }.max_by{ |_| _[1] }[0]
+    ratings.chunk { |r| r.beer.style }.map{ |b| style_average(b) }.max_by{ |s| s[1] }[0]
   end
 
-  # ch = ratings.chunk {|r| r.beer.style}
   def style_average(record)
     style = record[0]
     ratings = record[1]
     points = ratings.map(&:score).sum(0.0)
     [style, points / ratings.size]
   end
-  # avs = ch.map{|b| style_average(b)}
-  # avs.max_by{|_| _[1]}[0]
 end
