@@ -25,6 +25,9 @@ class User < ApplicationRecord
     ratings.chunk { |r| r.beer.style }.map{ |b| style_average(b) }.max_by{ |s| s[1] }[0]
   end
 
+  def favorite_brewery
+  end
+
   def style_average(record)
     style = record[0]
     ratings = record[1]
