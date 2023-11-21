@@ -21,7 +21,7 @@ class User < ApplicationRecord
 
   def favorite_style
     return nil if ratings.empty?
-
+    binding.pry
     ratings.first.beer.style
   end
 end
