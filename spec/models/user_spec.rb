@@ -81,6 +81,13 @@ RSpec.describe User, type: :model do
     it "without ratings does not have a favorite style" do
       expect(user.favorite_style).to eq(nil)
     end
+
+    it "it corresponds to the only rated if only one rating" do
+      beer = FactoryBot.create(:beer)
+      rating = FactoryBot.create(:rating, score: 20, beer: beer, user: user)
+
+      expect(user.favorite_style).to eq(beer.style)
+    end
   end
 end
 
