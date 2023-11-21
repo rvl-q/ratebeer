@@ -71,7 +71,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe "favorite_style" do
+  describe "favorite style" do
     let(:user){ FactoryBot.create(:user) }
 
     it "has method for determining the favorite style" do
@@ -96,6 +96,14 @@ RSpec.describe User, type: :model do
       create_beers_with_many_ratings({user: user, style: "Crappy"}, 1, 2, 5, 4, 3)
 
       expect(user.favorite_style).to eq("Best")
+    end
+  end
+
+  describe "favorite brewery" do
+    let(:user){ FactoryBot.create(:user) }
+
+    it "has method for determining the favorite brewery" do
+      expect(user).to respond_to(:favorite_brewery)
     end
   end
 end
