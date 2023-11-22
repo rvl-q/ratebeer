@@ -7,6 +7,18 @@
 <p>
   Has made <%= pluralize(@user.ratings.count, 'rating') %>, average rating <%= @user.average_rating %>
 </p>
+
+<% if @user.favorite_brewery %>
+  <p>
+    Favourite style:
+    <%= @user.favorite_style %>
+  </p>
+  <p>
+    Favourite brewery:
+    <%= @user.favorite_brewery.name %>
+  </p>
+<% end %>
+
 <h4>member of</h4>
 
 <ul>
@@ -28,18 +40,6 @@
     </li>
   <% end %>
 </ul>
-
-<p>
-  <b>favourite beer style </b>
-  <%= @user.favorite_style %>
-</p>
-
-<p>
-  <b>favourite brewery </b>
-  <% if @user.favorite_brewery %>
-    <%= @user.favorite_brewery.name %>
-  <% end %>
-</p>
 
 <div>
   <% if @user == current_user %>
