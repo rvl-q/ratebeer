@@ -33,3 +33,6 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# hide the key until properly hidden
+/app/controllers/places_controller.rb
