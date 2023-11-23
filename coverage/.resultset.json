@@ -682,6 +682,33 @@
         "branches": {
         }
       },
+      "/home/rvl/kod/ror/wepa/ratebeer/app/controllers/places_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
       "/home/rvl/kod/ror/wepa/ratebeer/app/jobs/application_job.rb": {
         "lines": [
           0,
@@ -704,8 +731,19 @@
         ],
         "branches": {
         }
+      },
+      "/home/rvl/kod/ror/wepa/ratebeer/app/models/place.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
       }
     },
-    "timestamp": 1700705475
+    "timestamp": 1700772516
   }
 }
