@@ -35,4 +35,4 @@
 /config/master.key
 
 # hide the key until properly hidden
-/app/controllers/places_controller.rb
+app/controllers/places_controller.rb
