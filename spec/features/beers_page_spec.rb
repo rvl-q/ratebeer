@@ -1,11 +1,19 @@
 require 'rails_helper'
 
+include Helpers
+
 describe "Beers page" do
   let!(:brewery) { FactoryBot.create :brewery, name: "Koff" }
+  let!(:user) { FactoryBot.create :user }
+
+  before :each do
+    sign_in(username: "Pekka", password: "Foobar1")
+  end
 
   it "should have a link to the page for creating a new beer" do
     visit beers_path
-    click_link('New beer')
+    # save_and_open_page
+    click_link('New Beer')
     expect(current_path).to eq(new_beer_path)
   end
     
