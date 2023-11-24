@@ -86,6 +86,7 @@ group :test do
   # gem "capybara-wsl"
   gem 'simplecov', require: false
   gem 'rubocop'
+  gem 'webmock'
 end
 
 gem "dockerfile-rails", ">= 1.5", :group => :development
