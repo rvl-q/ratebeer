@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2023-11-24T12:59:56+02:00">2023-11-24T12:59:56+02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2023-11-24T15:10:29+02:00">2023-11-24T15:10:29+02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="red">
-  51.1%
+  51.51%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         3.06
+         3.07
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>362</b> relevant lines,
-    <span class="green"><b>185</b> lines covered</span> and
+    <b>365</b> relevant lines,
+    <span class="green"><b>188</b> lines covered</span> and
     <span class="red"><b>177</b> lines missed. </span>
     (<span class="red">
-  51.1%
+  51.51%
 </span>
 )
   </div>
@@ -380,12 +380,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#462cb823675db1dac492a46461b95699ddaa9a8c" class="src_link" title="lib/beermapping_api.rb">lib/beermapping_api.rb</a></td>
-            <td class="yellow strong cell--number t-file__coverage">84.62 %</td>
-            <td class="cell--number">22</td>
-            <td class="cell--number">13</td>
-            <td class="cell--number">11</td>
+            <td class="yellow strong cell--number t-file__coverage">87.50 %</td>
+            <td class="cell--number">28</td>
+            <td class="cell--number">16</td>
+            <td class="cell--number">14</td>
             <td class="cell--number">2</td>
-            <td class="cell--number">2.69</td>
+            <td class="cell--number">2.81</td>
             
           </tr>
         
@@ -1057,14 +1057,14 @@
     <span class="group_name">Libraries</span>
     (<span class="covered_percent">
       <span class="yellow">
-  84.62%
+  87.5%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.69
+         2.81
        </span>
     </span> hits/line
     )
@@ -1077,11 +1077,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>13</b> relevant lines,
-    <span class="green"><b>11</b> lines covered</span> and
+    <b>16</b> relevant lines,
+    <span class="green"><b>14</b> lines covered</span> and
     <span class="red"><b>2</b> lines missed. </span>
     (<span class="yellow">
-  84.62%
+  87.5%
 </span>
 )
   </div>
@@ -1106,12 +1106,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#462cb823675db1dac492a46461b95699ddaa9a8c" class="src_link" title="lib/beermapping_api.rb">lib/beermapping_api.rb</a></td>
-            <td class="yellow strong cell--number t-file__coverage">84.62 %</td>
-            <td class="cell--number">22</td>
-            <td class="cell--number">13</td>
-            <td class="cell--number">11</td>
+            <td class="yellow strong cell--number t-file__coverage">87.50 %</td>
+            <td class="cell--number">28</td>
+            <td class="cell--number">16</td>
+            <td class="cell--number">14</td>
             <td class="cell--number">2</td>
-            <td class="cell--number">2.69</td>
+            <td class="cell--number">2.81</td>
             
           </tr>
         
@@ -8670,7 +8670,7 @@
     <h3>lib/beermapping_api.rb</h3>
     <h4>
       <span class="yellow">
-  84.62%
+  87.5%
 </span>
 
       lines covered
@@ -8679,8 +8679,8 @@
     
 
     <div class="t-line-summary">
-      <b>13</b> relevant lines.
-      <span class="green"><b>11</b> lines covered</span> and
+      <b>16</b> relevant lines.
+      <span class="green"><b>14</b> lines covered</span> and
       <span class="red"><b>2</b> lines missed.</span>
     </div>
 
@@ -8720,7 +8720,7 @@
 
             
 
-            <code class="ruby">    url = &quot;http://beermapping.com/webservice/loccity/#{key}/&quot;</code>
+            <code class="ruby">    city = city.downcase</code>
           </li>
         </div>
       
@@ -8731,29 +8731,29 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    # Rails.cache.fetch(city, expires_in: 1.minute) { get_places_in(city) } # test</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="5">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="6" data-linenumber="5">
+            <span class="hits">6</span>
             
 
             
 
-            <code class="ruby">    response = HTTParty.get &quot;#{url}#{ERB::Util.url_encode(city)}&quot;</code>
+            <code class="ruby">    Rails.cache.fetch(city, expires_in: 1.week) { get_places_in(city) }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="6">
-            <span class="hits">3</span>
+          <li class="never" data-hits="" data-linenumber="6">
+            
             
 
             
 
-            <code class="ruby">    places = response.parsed_response[&quot;bmp_locations&quot;][&quot;location&quot;]</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -8769,18 +8769,29 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="8">
+          <li class="covered" data-hits="1" data-linenumber="8">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def self.get_places_in(city)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="3" data-linenumber="9">
             <span class="hits">3</span>
             
 
             
 
-            <code class="ruby">    return [] if places.is_a?(Hash) &amp;&amp; places[&#39;id&#39;].nil?</code>
+            <code class="ruby">    url = &quot;http://beermapping.com/webservice/loccity/#{key}/&quot;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="9">
+          <li class="never" data-hits="" data-linenumber="10">
             
             
 
@@ -8791,35 +8802,24 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="10">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="3" data-linenumber="11">
+            <span class="hits">3</span>
             
 
             
 
-            <code class="ruby">    places = [places] if places.is_a?(Hash)</code>
+            <code class="ruby">    response = HTTParty.get &quot;#{url}#{ERB::Util.url_encode(city)}&quot;</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="11">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="3" data-linenumber="12">
+            <span class="hits">3</span>
             
 
             
 
-            <code class="ruby">    places.map do |place|</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="13" data-linenumber="12">
-            <span class="hits">13</span>
-            
-
-            
-
-            <code class="ruby">      Place.new(place)</code>
+            <code class="ruby">    places = response.parsed_response[&quot;bmp_locations&quot;][&quot;location&quot;]</code>
           </li>
         </div>
       
@@ -8830,18 +8830,18 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="14">
-            
-            
-
+          <li class="covered" data-hits="3" data-linenumber="14">
+            <span class="hits">3</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    return [] if places.is_a?(Hash) &amp;&amp; places[&#39;id&#39;].nil?</code>
           </li>
         </div>
       
@@ -8857,35 +8857,35 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="16">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="2" data-linenumber="16">
+            <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">  def self.key</code>
+            <code class="ruby">    places = [places] if places.is_a?(Hash)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="17">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="2" data-linenumber="17">
+            <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">    return nil if Rails.env.test? # testatessa ei apia tarvita, palautetaan nil</code>
+            <code class="ruby">    places.map do |place|</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="18">
-            
-            
-
+          <li class="covered" data-hits="13" data-linenumber="18">
+            <span class="hits">13</span>
             
 
-            <code class="ruby">    raise &#39;BEERMAPPING_APIKEY env variable not defined&#39; if ENV[&#39;BEERMAPPING_APIKEY&#39;].nil?</code>
+            
+
+            <code class="ruby">      Place.new(place)</code>
           </li>
         </div>
       
@@ -8896,23 +8896,12 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="20">
-            
-            
-
-            
-
-            <code class="ruby">    ENV.fetch(&#39;BEERMAPPING_APIKEY&#39;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="21">
+          <li class="never" data-hits="" data-linenumber="20">
             
             
 
@@ -8923,7 +8912,84 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="22">
+          <li class="never" data-hits="" data-linenumber="21">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="22">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def self.key</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="3" data-linenumber="23">
+            <span class="hits">3</span>
+            
+
+            
+
+            <code class="ruby">    return nil if Rails.env.test? # testatessa ei apia tarvita, palautetaan nil</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="24">
+            
+            
+
+            
+
+            <code class="ruby">    raise &#39;BEERMAPPING_APIKEY env variable not defined&#39; if ENV[&#39;BEERMAPPING_APIKEY&#39;].nil?</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="25">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="26">
+            
+            
+
+            
+
+            <code class="ruby">    ENV.fetch(&#39;BEERMAPPING_APIKEY&#39;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="27">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="28">
             
             
 
