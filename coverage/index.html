@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2023-11-25T15:02:50+02:00">2023-11-25T15:02:50+02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2023-11-25T16:01:51+02:00">2023-11-25T16:01:51+02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,7 +23,7 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="red">
-  51.51%
+  51.64%
 </span>
 
      </span>
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>365</b> relevant lines,
-    <span class="green"><b>188</b> lines covered</span> and
+    <b>366</b> relevant lines,
+    <span class="green"><b>189</b> lines covered</span> and
     <span class="red"><b>177</b> lines missed. </span>
     (<span class="red">
-  51.51%
+  51.64%
 </span>
 )
   </div>
@@ -150,11 +150,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#ad6538b16c2ff36c35b4926410730cffcdd8b28b" class="src_link" title="app/controllers/places_controller.rb">app/controllers/places_controller.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">13</td>
-            <td class="cell--number">7</td>
-            <td class="cell--number">7</td>
+            <td class="cell--number">16</td>
+            <td class="cell--number">8</td>
+            <td class="cell--number">8</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.71</td>
+            <td class="cell--number">1.63</td>
             
           </tr>
         
@@ -401,14 +401,14 @@
     <span class="group_name">Controllers</span>
     (<span class="covered_percent">
       <span class="red">
-  39.61%
+  39.84%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.81
+         1.8
        </span>
     </span> hits/line
     )
@@ -421,11 +421,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>255</b> relevant lines,
-    <span class="green"><b>101</b> lines covered</span> and
+    <b>256</b> relevant lines,
+    <span class="green"><b>102</b> lines covered</span> and
     <span class="red"><b>154</b> lines missed. </span>
     (<span class="red">
-  39.61%
+  39.84%
 </span>
 )
   </div>
@@ -506,11 +506,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#ad6538b16c2ff36c35b4926410730cffcdd8b28b" class="src_link" title="app/controllers/places_controller.rb">app/controllers/places_controller.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">13</td>
-            <td class="cell--number">7</td>
-            <td class="cell--number">7</td>
+            <td class="cell--number">16</td>
+            <td class="cell--number">8</td>
+            <td class="cell--number">8</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.71</td>
+            <td class="cell--number">1.63</td>
             
           </tr>
         
@@ -4882,8 +4882,8 @@
     
 
     <div class="t-line-summary">
-      <b>7</b> relevant lines.
-      <span class="green"><b>7</b> lines covered</span> and
+      <b>8</b> relevant lines.
+      <span class="green"><b>8</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -4945,78 +4945,12 @@
 
             
 
-            <code class="ruby">  def search</code>
+            <code class="ruby">  def show</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="6">
-            <span class="hits">3</span>
-            
-
-            
-
-            <code class="ruby">    @places = BeermappingApi.places_in(params[:city])</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="3" data-linenumber="7">
-            <span class="hits">3</span>
-            
-
-            
-
-            <code class="ruby">    if @places.empty?</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="8">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      redirect_to places_path, notice: &quot;No locations in #{params[:city]}&quot;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="9">
-            
-            
-
-            
-
-            <code class="ruby">    else</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="10">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">      render :index, status: 418</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="11">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="12">
+          <li class="never" data-hits="" data-linenumber="6">
             
             
 
@@ -5027,7 +4961,106 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="13">
+          <li class="never" data-hits="" data-linenumber="7">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="8">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def search</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="3" data-linenumber="9">
+            <span class="hits">3</span>
+            
+
+            
+
+            <code class="ruby">    @places = BeermappingApi.places_in(params[:city])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="3" data-linenumber="10">
+            <span class="hits">3</span>
+            
+
+            
+
+            <code class="ruby">    if @places.empty?</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="11">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      redirect_to places_path, notice: &quot;No locations in #{params[:city]}&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="12">
+            
+            
+
+            
+
+            <code class="ruby">    else</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="13">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">      render :index, status: 418</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="14">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="15">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="16">
             
             
 
@@ -8000,7 +8033,7 @@
 
             
 
-            <code class="ruby">    [:id, :name, :status, :street, :city, :zip, :country, :overall]</code>
+            <code class="ruby">    [:name, :id, :status, :street, :city, :zip, :country, :overall]</code>
           </li>
         </div>
       

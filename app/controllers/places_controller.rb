@@ -2,6 +2,9 @@ class PlacesController < ApplicationController
   def index
   end
 
+  def show
+  end
+
   def search
     @places = BeermappingApi.places_in(params[:city])
     if @places.empty?
