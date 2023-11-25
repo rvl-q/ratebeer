@@ -9,7 +9,7 @@ class BeerClubsController < ApplicationController
 
   # GET /beer_clubs/1 or /beer_clubs/1.json
   def show
-    @membership = Membership.new
+    @membership = Membership.where(user_id: current_user&.id).where(beer_club_id: @beer_club.id).first
   end
 
   # GET /beer_clubs/new

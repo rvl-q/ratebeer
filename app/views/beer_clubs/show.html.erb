@@ -14,10 +14,17 @@
 <div>
   <% if current_user  %>
     <% if !@beer_club.users.include? current_user %>
-      <%= form_with(model: @membership) do |form| %>
+      <%= form_with(model: Membership.new) do |form| %>
         <%= form.hidden_field :beer_club_id, value: @beer_club.id %>
         <%= form.hidden_field :user_id, value: current_user.id %>
         <%= form.submit "Join the beer club" %>
+      <% end %>
+    <% else %>
+      <%= form_with(model: @membership, method: :delete) do |form| %>
+        <% m = Membership.where(user_id: 1).where(beer_club_id: 1) %>
+        <%= form.hidden_field :beer_club_id, value: @beer_club.id %>
+        <%= form.hidden_field :user_id, value: current_user.id %>
+        <%= form.submit "End the membership" %>
       <% end %>
     <% end %>
 
