@@ -1,13 +1,19 @@
-<h3>Temporary Bar</h3>
+<% if @place %>
+  <h3><%= @place.name %></h3>
+  <p>
+    <%= @place.status %>
+  </p>
+  <p>
+    <%= @place.street %>
+  </p>
+  <p>
+    <%= @place.zip %>
+    <%= @place.city %>
+  </p>
 
-<p> bar id is
-  <%= params[:id] %>
-</p>
-
-<p> bar id is
-  <%= params[:id] %>
-</p>
-
-<p> bar id is
-  <%= params[:id] %>
-</p>
+<% else %>
+  <h3>This bar was not in the cache (id: <%= params[:id] %>)</h3>
+  <p>
+    Please use links to navigate!
+  </p>
+<% end %>
