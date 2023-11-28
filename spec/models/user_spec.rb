@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'rails_helper' 
 
 include Helpers
 
@@ -39,8 +39,10 @@ RSpec.describe User, type: :model do
     end
   
     it "and with two ratings, has the correct average rating" do
-      FactoryBot.create(:rating, score: 10, user: user)
-      FactoryBot.create(:rating, score: 20, user: user)
+      style = FactoryBot.create(:style, name: 'Lager')
+      beer = FactoryBot.create(:beer, style: style)
+      FactoryBot.create(:rating, beer: beer, score: 10, user: user)
+      FactoryBot.create(:rating, beer: beer, score: 20, user: user)
   
       expect(user.ratings.count).to eq(2)
       expect(user.average_rating).to eq(15.0)
@@ -92,12 +94,16 @@ RSpec.describe User, type: :model do
     end
 
     it "is the one with highest _average_ rating if several rated" do
-      create_beers_with_many_ratings({user: user, style: "Fair"}, 10, 20, 15, 7, 9)
-      create_beers_with_many_ratings({ user: user, style: "Best" }, 50, 49, 48, 48, 47)
-      create_beers_with_many_ratings({ user: user, style: "Scondbest" }, 50, 49, 48, 46, 47)
-      create_beers_with_many_ratings({user: user, style: "Crappy"}, 1, 2, 5, 4, 3)
+      fair = FactoryBot.create(:style, name: 'Fair')
+      best = FactoryBot.create(:style, name: 'Best')
+      secondbest = FactoryBot.create(:style, name: 'Secondbest')
+      crappy = FactoryBot.create(:style, name: 'Crappy')
+      create_beers_with_many_ratings({user: user, style: fair}, 10, 20, 15, 7, 9)
+      create_beers_with_many_ratings({ user: user, style: best }, 50, 49, 48, 48, 47)
+      create_beers_with_many_ratings({ user: user, style: secondbest }, 50, 49, 48, 46, 47)
+      create_beers_with_many_ratings({user: user, style: crappy }, 1, 2, 5, 4, 3)
 
-      expect(user.favorite_style).to eq("Best")
+      expect(user.favorite_style).to eq(best)
     end
   end
 

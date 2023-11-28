@@ -5,6 +5,7 @@ include Helpers
 describe "Beers page" do
   let!(:brewery) { FactoryBot.create :brewery, name: "Koff" }
   let!(:user) { FactoryBot.create :user }
+  let!(:style) { FactoryBot.create :style, name: 'Lager' }
 
   before :each do
     sign_in(username: "Pekka", password: "Foobar1")
@@ -23,7 +24,7 @@ describe "Beers page" do
     end
 
     it "should succeed with proper parameters" do
-      select('Lager', from: 'beer[style]')
+      select('Lager', from: 'beer[style_id]')
       select('Koff', from: 'beer[brewery_id]')
       fill_in('beer[name]', with: 'Test23')
   
@@ -33,7 +34,7 @@ describe "Beers page" do
     end  
 
     it "should not succeed without a name" do
-      select('Lager', from: 'beer[style]')
+      select('Lager', from: 'beer[style_id]')
       select('Koff', from: 'beer[brewery_id]')
   
       click_button "Create Beer"
