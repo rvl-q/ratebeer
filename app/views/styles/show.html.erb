@@ -1,2 +1,21 @@
-<h2>Style</h2>
+<p style="color: green"><%= notice %></p>
+
 <%= render @style %>
+<ul>
+  <h4>beers:</h4>
+    <% @beers&.each do |beer| %>
+      <li>
+        <%= beer.name %>
+      </li>
+    <% end %>
+</ul>
+
+<div>
+  <% if current_user  %>
+
+    <%= link_to "Edit this style", edit_style_path(@style) %> |
+  <% end %>
+  <%= link_to "Back to beer styles", styles_path %>
+
+  <%= button_to("Destroy this style", @style, method: :delete) if current_user  %>
+</div>

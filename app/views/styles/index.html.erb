@@ -1,7 +1,13 @@
+<p style="color: red"><%= notice %></p>
+
 <h1>Styles</h1>
 
 <% @styles.each do |style| %>
   <p>
     <%= render style %>
   </p>
+<% end %>
+
+<% if current_user %>
+  <%= link_to 'create new style', new_style_path %>
 <% end %>

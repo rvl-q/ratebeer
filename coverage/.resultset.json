@@ -403,6 +403,9 @@
       "/home/rvl/kod/ror/wepa/ratebeer/app/models/style.rb": {
         "lines": [
           1,
+          1,
+          null,
+          1,
           null
         ]
       },
@@ -765,6 +768,58 @@
         "branches": {
         }
       },
+      "/home/rvl/kod/ror/wepa/ratebeer/app/controllers/styles_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
       "/home/rvl/kod/ror/wepa/ratebeer/app/jobs/application_job.rb": {
         "lines": [
           0,
@@ -789,6 +844,6 @@
         }
       }
     },
-    "timestamp": 1701120009
+    "timestamp": 1701203449
   }
 }
