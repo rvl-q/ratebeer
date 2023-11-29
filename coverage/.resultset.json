@@ -526,6 +526,47 @@
           null
         ]
       },
+      "/home/rvl/kod/ror/wepa/ratebeer/lib/weather_api.rb": {
+        "lines": [
+          1,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null
+        ]
+      },
+      "/home/rvl/kod/ror/wepa/ratebeer/app/models/weather.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
       "/home/rvl/kod/ror/wepa/ratebeer/app/controllers/places_controller.rb": {
         "lines": [
           1,
@@ -842,6 +883,6 @@
         }
       }
     },
-    "timestamp": 1701214021
+    "timestamp": 1701301869
   }
 }
