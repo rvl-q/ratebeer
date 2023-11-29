@@ -1,6 +1,6 @@
-<h1>Beer places search</h1>
-
 <p id="notice"><%= notice %></p>
+
+<h1>Beer places search</h1>
 
 <%= form_with url: places_path, method: :post do |form| %>
   city <%= form.text_field :city %>
@@ -8,6 +8,23 @@
 <% end %>
 
 <% if @places %>
+  <% city = @places[0].city %>
+  <% weather = WeatherApi.weather_in(city) %>
+  <h2>
+    The current beer weather in
+    <%= city %>
+  </h2>
+  <p>
+    <%= weather.temperature %> °C
+  </p>
+  <p>
+    <% weather.weather_icons.each do |icon| %>
+      <%= image_tag icon %>
+    <% end %>
+  </p>
+  <p>
+    <strong>wind</strong> <%= "#{(weather.wind_speed * 0.27777778).round(2)} m/s, direction: #{weather.wind_dir}" %>
+  </p>
   <table>
     <thead>
       <% Place.rendered_fields.each do |field| %>
