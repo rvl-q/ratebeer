@@ -2,9 +2,31 @@
 <h1>Beers</h1>
 
 <div id="beers">
-  <% @beers.each do |beer| %>
-    <%= render beer %>
-  <% end %>
+  <table class="table table-striped table-hover">
+    <head>
+      <% %w[Name Style Brewery Rating].each do |h| %>
+        <th><%= h %></th>
+      <% end %>
+    </head>
+    <% @beers.each do |beer| %>
+      <tr>
+        <td>
+          <%= link_to beer.name, beer %>
+        </td><td>
+          <%= beer.style.name %>
+        </td><td>
+          <%= link_to beer.brewery.name, beer.brewery %>
+        </td>
+        <td>
+          <% if beer.ratings.empty? %>
+            0.0
+          <% else %>
+            <%= beer.average_rating %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 </div>
 
 <%= link_to('New Beer', new_beer_path) if current_user %>
