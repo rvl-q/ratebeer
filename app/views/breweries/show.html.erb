@@ -9,9 +9,9 @@
 
 <div>
   <% if current_user %>
-    <%= link_to "Edit this brewery", edit_brewery_path(@brewery) %> |
+    <%= link_to("Edit this brewery", edit_brewery_path(@brewery), class:'btn btn-primary') %> |
   <% end %>
-  <%= link_to "Back to breweries", breweries_path %>
+  <%= link_to("Back to breweries", breweries_path, class:'btn btn-primary') %>
 
-  <%= button_to("Destroy this brewery", @brewery, method: :delete) if current_user %>
+  <%= button_to("Destroy this brewery", @brewery, method: :delete, class:'btn btn-danger') if current_user %>
 </div>

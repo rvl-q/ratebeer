@@ -12,5 +12,5 @@
     <%= @ratings.count %>
 </p>
 <p>
-    <%= link_to 'create new rating', new_rating_path %>
+    <%= link_to('create new rating', new_rating_path, class:'btn btn-primary') if current_user %>
 </p>
