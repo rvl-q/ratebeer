@@ -1,7 +1,10 @@
 <div id="<%= dom_id brewery %>">
   <h2>
     <%= brewery.name %>
-  </h3>
+    <% if not brewery.active  %>
+      <span class="badge bg-secondary">retired</span>
+    <% end %>
+  </h2>
 
   <em>
     Established in
@@ -9,7 +12,7 @@
   </em>
   <p>
     Beers:
-    <%= @brewery.beers.count %>
+    <%= brewery.beers.count %>
   </p>
   <p>
     <% brewery.beers.each do |beer| %>
