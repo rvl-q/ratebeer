@@ -18,7 +18,7 @@
 
   <div class="mb-3">
     <%= form.label :founded, class: "form-label" %>
-    <%= form.number_field :founded, :value => 1999, class: "form-control" %>
+    <%= form.number_field :founded, :value => @beer_club&.founded || 1999, class: "form-control" %>
   </div>
 
   <div class="mb-3">

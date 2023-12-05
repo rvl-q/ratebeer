@@ -18,7 +18,7 @@
 
   <div class="mb-3">
     <%= form.label :year, class: "form-label" %>
-    <%= form.number_field :year, value: 1999, min: 1040, max: Time.current.year, class: "form-control" %>
+    <%= form.number_field :year, value: @brewery&.year || 1999, min: 1040, max: Time.current.year, class: "form-control" %>
   </div>
 
   <div>
