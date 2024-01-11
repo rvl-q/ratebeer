@@ -32,7 +32,7 @@
 
 <ul>
   <% @user.ratings.each do |rating| %>
-    <li><%= "#{rating.to_s}" %>
+    <li><%= render rating %>
       <% if @user == current_user %>
         <%= link_to "Delete", rating, data: {turbo_method: :delete} %>
       <% end %>

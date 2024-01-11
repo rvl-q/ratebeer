@@ -12,4 +12,8 @@ class Beer < ApplicationRecord
   def to_s
     "#{brewery.name}, #{name}"
   end
+
+  def self.top(nnn)
+    Beer.all.sort_by{ |b| -b.average_rating }.first(nnn)
+  end
 end

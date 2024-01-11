@@ -37,4 +37,12 @@ class User < ApplicationRecord
     points = ratings.map(&:score).sum(0.0)
     [first, points / ratings.size]
   end
+
+  def self.most_active(nnn)
+    User.all.sort_by{ |u| -u.ratings.count }.first(nnn)
+  end
+
+  def to_s
+    username
+  end
 end
