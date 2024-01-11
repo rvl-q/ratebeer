@@ -4,7 +4,7 @@
   <%= @user.username %>
 </p>
 <p>
-  Has made <%= pluralize(@user.ratings.count, 'rating') %>, average rating <%= @user.average_rating %>
+  Has made <%= pluralize(@user.ratings.count, 'rating') %>, average rating <%= @user.average_rating.round(2) %>
 </p>
 
 <% if @user.favorite_brewery %>

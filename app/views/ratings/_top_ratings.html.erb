@@ -2,7 +2,7 @@
   <% objects.each do |b| %>
     <li>
       <%= b.name %>
-      <%= b.average_rating %>
+      <%= b.average_rating.round(2) %>
     </li>
   <% end %>
 </ul>
