@@ -1,8 +1,18 @@
-<ul>
-  <% objects.each do |b| %>
-    <li>
+<table class="table">
+  <head>
+    <th><%= objects.first.class.name %></th>
+    <th>Average</th>
+  </head>
+
+  <% objects&.each do |b| %>
+    <tr>
+      <td>
       <%= b.name %>
+      </td>
+      <td>
       <%= b.average_rating.round(2) %>
-    </li>
+      </td>
+    </tr>
   <% end %>
-</ul>
+
+</table>

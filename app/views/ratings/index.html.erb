@@ -1,11 +1,21 @@
 <h2>Ratings</h2>
 
-<h3>Best beers</h3>
-<%= render partial: "top_ratings", locals: { objects: @top_beers } %>
-
-<h3>Best breweries</h3>
-<%= render partial: "top_ratings", locals: { objects: @top_breweries } %>
-
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+    <h3>Best beers</h3>
+    <%= render partial: "top_ratings", locals: { objects: @top_beers } %>
+    </div>
+    <div class="col-sm-4">
+    <h3>Best breweries</h3>
+    <%= render partial: "top_ratings", locals: { objects: @top_breweries } %>
+    </div>
+    <div class="col-sm-4">
+    <h3>Best styles</h3>
+    <%= render partial: 'top_ratings', locals: { objects: @top_styles } %>
+    </div>
+  </div>
+</div>
 <h3>Most active users</h3>
 <ol>
   <% @active_users.each do |user| %>
