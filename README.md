@@ -61,3 +61,5 @@ Updating existing machines in 'biiru' with rolling strategy
 Visit your newly deployed app at https://biiru.fly.dev/
 rvl@SulonKastike:~/kod/ror/wepa/ratebeer$
 ```
+
+### Kill VM - long live the VM(!)
