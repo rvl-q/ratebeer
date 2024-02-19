@@ -10,4 +10,12 @@ module ApplicationHelper
       raw("#{edit} #{del}")
     end
   end
+
+  def round_one_decimal(num)
+    number_with_precision(num, precision: 1).to_s
+  end
+
+  def round(num)
+    number_with_precision(num, precision: 1).to_s
+  end
 end

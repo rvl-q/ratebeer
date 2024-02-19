@@ -21,7 +21,7 @@
           <% if beer.ratings.empty? %>
             0.0
           <% else %>
-            <%= beer.average_rating.round(2) %>
+            <%= round(beer.average_rating) %>
           <% end %>
         </td>
       </tr>
