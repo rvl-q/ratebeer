@@ -10,11 +10,7 @@
 </ul>
 
 <div>
-  <% if current_user  %>
-
-    <%= link_to "Edit this style", edit_style_path(@style) %> |
-  <% end %>
   <%= link_to "Back to beer styles", styles_path %>
 
-  <%= button_to("Destroy this style", @style, method: :delete) if current_user  %>
+  <%= edit_and_destroy_buttons(@style) %>
 </div>
