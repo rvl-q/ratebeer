@@ -1,4 +1,5 @@
 class StylesController < ApplicationController
+  before_action :ensure_admin_rights, only: [:destroy]
   before_action :ensure_that_signed_in, except: [:index, :show]
 
   def index

@@ -23,7 +23,7 @@
 
   <div>
     <%= form.label :active, style: "display: block" %>
-    <%= form.check_box :active %>
+    <%= form.check_box :active, { checked: (@brewery&.active.nil? || @brewery&.active) } %>
   </div>
 
   <div>

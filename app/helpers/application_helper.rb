@@ -7,7 +7,11 @@ module ApplicationHelper
       del = button_to('Destroy', item, method: :delete, # workaround
                                      form: { data: { turbo_confirm: "Are you sure ?" } },
                                      class: "btn btn-danger")
-      raw("#{edit} #{del}")
+      if current_user.admin?
+        raw("#{edit} #{del}")
+      else
+        raw(edit)
+      end
     end
   end
 
