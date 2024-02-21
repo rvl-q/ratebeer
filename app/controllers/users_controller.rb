@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
+  before_action :ensure_admin_rights, only: [:toggle_activity]
 
   # GET /users or /users.json
   def index
     @users = User.all
+    @active_users = User.active
   end
 
   # GET /users/1 or /users/1.json
@@ -59,6 +61,16 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: "User was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  # Toggle
+  def toggle_activity
+    user = User.find(params[:id])
+    user.update_attribute :active, !user.active
+
+    new_status = user.active? ? "active" : "closed"
+
+    redirect_to user, notice: "user status changed to #{new_status}"
   end
 
   private

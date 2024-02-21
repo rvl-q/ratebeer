@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :memberships, dependent: :destroy
   has_many :beer_clubs, through: :memberships
 
+  scope :active, -> { where active: true }
+
   def favorite_beer
     return nil if ratings.empty? # palautetaan nil jos reittauksia ei ole
 

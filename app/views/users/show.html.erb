@@ -1,7 +1,6 @@
 
-<h3>Username:</h3>
 <p>
-  <%= @user.username %>
+  <%= render @user %>
 </p>
 <p>
   Has made <%= pluralize(@user.ratings.count, 'rating') %>, average rating <%= round(@user.average_rating) %>
@@ -16,6 +15,10 @@
     Favourite brewery:
     <%= @user.favorite_brewery.name %>
   </p>
+<% end %>
+
+<% if current_user&.admin? %>
+  <%= link_to "change status", toggle_activity_user_path(@user.id), data: {turbo_method: "post"}, class: "btn btn-danger" %>
 <% end %>
 
 <h4>member of</h4>

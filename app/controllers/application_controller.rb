@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_admin_rights
-    ensure_that_signed_in
-    redirect_to signin_path, notice: 'you should be signed in as an admin' unless current_user.admin?
+    # ensure_that_signed_in
+    redirect_to signin_path, notice: 'you should be signed in as an admin' unless current_user&.admin?
   end
 end

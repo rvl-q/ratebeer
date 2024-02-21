@@ -2,7 +2,8 @@
 <h1>Users</h1>
 
 <div id="users">
-  <% @users.each do |user| %>
+  <% users = current_user&.admin? ? @users : @active_users %>
+  <% users.each do |user| %>
     <%= render user %>
     <p>
       <%= link_to "Show this user", user %>

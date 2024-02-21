@@ -1,7 +1,10 @@
 <div id="<%= dom_id user %>">
-  <p>
+  <h4>
     <strong>Username:</strong>
     <%= user.username %>
-  </p>
+  </h4>
+  <% if !user.active %>
+    <div class='btn btn-primary btn-sm'> closed </div>
+  <% end %>
 
 </div>
