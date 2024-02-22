@@ -21,23 +21,51 @@ class User < ApplicationRecord
     ratings.order(score: :desc).limit(1).first.beer
   end
 
-  def favorite_style
-    return nil if ratings.empty?
+  # def favorite_style
+  #   return nil if ratings.empty?
 
-    ratings.chunk { |r| r.beer.style }.map{ |b| favorite_average(b) }.max_by{ |s| s[1] }[0]
+  #   ratings.chunk { |r| r.beer.style }.map{ |b| favorite_average(b) }.max_by{ |s| s[1] }[0]
+  # end
+
+  # def favorite_brewery
+  #   return nil if ratings.empty?
+
+  #   ratings.chunk { |r| r.beer.brewery }.map{ |b| favorite_average(b) }.max_by{ |s| s[1] }[0]
+  # end
+
+  # def favorite_average(record)
+  #   first = record[0]
+  #   ratings = record[1]
+  #   points = ratings.map(&:score).sum(0.0)
+  #   [first, points / ratings.size]
+  # end
+
+  def favorite_style
+    favorite(:style)
   end
 
   def favorite_brewery
-    return nil if ratings.empty?
-
-    ratings.chunk { |r| r.beer.brewery }.map{ |b| favorite_average(b) }.max_by{ |s| s[1] }[0]
+    favorite(:brewery)
   end
 
-  def favorite_average(record)
-    first = record[0]
-    ratings = record[1]
-    points = ratings.map(&:score).sum(0.0)
-    [first, points / ratings.size]
+  def favorite(groupped_by)
+    return nil if ratings.empty?
+
+    grouped_ratings = ratings.group_by{ |r| r.beer.send(groupped_by) }
+    averages = grouped_ratings.map do |group, ratings|
+      { group:, score: average_of(ratings) }
+    end
+
+    averages.max_by{ |r| r[:score] }[:group]
+  end
+
+  # cludge for now
+  def average_of(ratings)
+    sum = 0.0
+    ratings.each do |r|
+      sum += r.score
+    end
+    sum / ratings.size
   end
 
   def self.most_active(nnn)
