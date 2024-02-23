@@ -6,6 +6,7 @@ describe "Beerlist page" do
       Capybara::Selenium::Driver.new app, browser: :chrome,
       options: Selenium::WebDriver::Chrome::Options.new(args: %w[headless disable-gpu])
       # options: Selenium::WebDriver::Chrome::Options.new(args: %w[disable-gpu])
+      config.allow_urls('')
     end
   
     Capybara.javascript_driver = :chrome
@@ -24,6 +25,16 @@ describe "Beerlist page" do
     @beer3 = FactoryBot.create(:beer, name: "Lechte Weisse", brewery:@brewery3, style:@style3)
   end
 
+  stub_request(:get, "https://googlechromelabs.github.io/chrome-for-testing/latest-patch-versions-per-build.json").
+         with(
+           headers: {
+       	  'Accept'=>'*/*',
+       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+       	  'Host'=>'googlechromelabs.github.io',
+       	  'User-Agent'=>'Ruby'
+           }).
+         to_return(status: 200, body: "", headers: {})
+         
   it "shows one known beer", js:true do
     visit beerlist_path
     # sleep 1 # cludge
