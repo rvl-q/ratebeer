@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "Beerlist page" do
   before :all do
-    stub_request(:get, /.*googlechromelabs.*/).to_return(body: "", headers:{})
+    # stub_request(:get, /.*googlechromelabs.*/).to_return(body: "", headers:{})
 
     Capybara.register_driver :chrome do |app|
       Capybara::Selenium::Driver.new app, browser: :chrome,
@@ -40,7 +40,7 @@ describe "Beerlist page" do
 
     visit beerlist_path
     # sleep 1 # cludge
-    find('table').find('tr:nth-child(2)') # did not work! (but the actual test seems to wait properly, with out this)
+    # find('table').find('tr:nth-child(2)') # did not work! (but the actual test seems to wait properly, with out this)
     # find('table').find('tbody').find('tr') # tr not found
     # save_and_open_page # broblems with WSL
     # Capybara.save_page # save now and open manually later - this works!
