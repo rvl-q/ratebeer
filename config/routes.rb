@@ -32,4 +32,5 @@ Rails.application.routes.draw do
   resources :styles # , only: [:index, :show, :new, :create, :destroy]
 
   get 'beerlist', to: 'beers#list'
+  get 'brewerylist', to: 'breweries#list'
 end

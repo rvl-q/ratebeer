@@ -1,8 +1,14 @@
 const BEERS = {};
+const BREWERIES = {};
 
 const handleResponse = (beers) => {
   BEERS.list = beers;
   BEERS.show();
+};
+
+const handleBreweryResponse = (breweries) => {
+  BREWERIES.list = breweries;
+  BREWERIES.show();
 };
 
 const createTableRow = (beer) => {
@@ -18,12 +24,38 @@ const createTableRow = (beer) => {
   return tr;
 };
 
+const createBreweryTableRow = (brewery) => {
+  const tr = document.createElement("tr");
+  tr.classList.add("tablerow");
+  const breweryname = tr.appendChild(document.createElement("td"));
+  breweryname.innerHTML = brewery.name;
+  const year = tr.appendChild(document.createElement("td"));
+  year.innerHTML = brewery.year;
+  const beer_count = tr.appendChild(document.createElement("td"));
+  // beer_count.innerHTML = Object.keys(brewery.beers).length;
+  beer_count.innerHTML = brewery.beers.count;
+  const active = tr.appendChild(document.createElement("td"));
+  active.innerHTML = !!brewery.active ? 'Active' : 'Retired';
+
+  return tr;
+};
+
 BEERS.show = () => {
   document.querySelectorAll(".tablerow").forEach((el) => el.remove());
   const table = document.getElementById("beertable");
 
   BEERS.list.forEach((beer) => {
     const tr = createTableRow(beer);
+    table.appendChild(tr);
+  });
+};
+
+BREWERIES.show = () => {
+  document.querySelectorAll(".tablerow").forEach((el) => el.remove());
+  const table = document.getElementById("brewerytable");
+
+  BREWERIES.list.forEach((beer) => {
+    const tr = createBreweryTableRow(beer);
     table.appendChild(tr);
   });
 };
@@ -82,4 +114,29 @@ const beers = () => {
   // request.send();
 };
 
-export { beers };
+// const handleBrewResponse = (breweries) => {
+//   // document.getElementById("breweries").innerText = `panimoita löytyi ${data.length}`;
+//   const breweryList = breweries.map((brewery) => `<li>${brewery.name}</li>`);
+
+//   document.getElementById("breweries").innerHTML = `<ul> ${breweryList.join("")} </ul>`;
+// };
+
+// const createBrewTableRow = (brew) => {
+//   const tr = document.createElement("tr");
+//   const brewname = tr.appendChild(document.createElement("td"));
+//   brewname.innerHTML = brew.name;
+
+//   return tr;
+// };
+
+
+const breweries = () => {
+  fetch("breweries.json")
+    .then((response) => response.json())
+    .then(handleBreweryResponse);
+  // document.getElementById("breweries").innerText = "Hello from JavaScript";
+  console.log("hello console, breweries done!");
+};
+
+// export { hello };
+export { beers, breweries };

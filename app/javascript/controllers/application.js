@@ -11,3 +11,7 @@ export { application }
 import { beers } from "custom/utils";
 
 beers();
+
+import { breweries } from "custom/utils";
+
+breweries();
