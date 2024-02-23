@@ -2,6 +2,8 @@ require 'rails_helper'
 
 describe "Beerlist page" do
   before :all do
+    stub_request(:get, /.*googlechromelabs.*/).to_return(body: "", headers:{})
+    
     Capybara.register_driver :chrome do |app|
       Capybara::Selenium::Driver.new app, browser: :chrome,
       options: Selenium::WebDriver::Chrome::Options.new(args: %w[headless disable-gpu])
@@ -34,9 +36,7 @@ describe "Beerlist page" do
   #          }).
   #        to_return(status: 200, body: "", headers: {})
 
-  it "shows one known beer", js:true do
-    stub_request(:get, /.*googlechromelabs.*/).to_return(body: "", headers:{})
-    
+  it "shows one known beer", js:true do    
 
     visit beerlist_path
     # sleep 1 # cludge
