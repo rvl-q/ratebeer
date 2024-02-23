@@ -30,4 +30,6 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
   resources :memberships, only: [:new, :create, :destroy]
   resources :styles # , only: [:index, :show, :new, :create, :destroy]
+
+  get 'beerlist', to: 'beers#list'
 end
