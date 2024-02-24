@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_20_005717) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_24_012039) do
   create_table "beer_clubs", force: :cascade do |t|
     t.string "name"
     t.integer "founded"
@@ -65,6 +65,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_20_005717) do
     t.string "password_digest"
     t.boolean "admin"
     t.boolean "active", default: true
+    t.index ["username"], name: "index_users_on_username"
   end
 
   add_foreign_key "beers", "styles"
