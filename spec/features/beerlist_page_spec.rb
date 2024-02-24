@@ -7,10 +7,11 @@ describe "Beerlist page" do
 
     p 'Debug ######################################################################'
     p Dir.pwd
+    p Dir.entries(".")
     p 'Debug ######################################################################'
-    # file = File.open("bin/chromedriver-linux64.zip", "rb")
-    # the_big = file.read
-    # file.close
+    file = File.open("./spec/bin/chromedriver-linux64.zip", "rb")
+    the_big = file.read
+    file.close
 
     # Webdrivers::Chromedriver.required_version = "121.0.6167.184"
     # Webdrivers::Chromedriver.required_version = "122.0.6261.57"
