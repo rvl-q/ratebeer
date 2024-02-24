@@ -5,9 +5,12 @@ the_big = "\x00"
 describe "Beerlist page" do
   before :all do
 
-    file = File.open("bin/chromedriver-linux64.zip", "rb")
-    the_big = file.read
-    file.close
+    p 'Debug ######################################################################'
+    p Dir.pwd
+    p 'Debug ######################################################################'
+    # file = File.open("bin/chromedriver-linux64.zip", "rb")
+    # the_big = file.read
+    # file.close
 
     # Webdrivers::Chromedriver.required_version = "121.0.6167.184"
     # Webdrivers::Chromedriver.required_version = "122.0.6261.57"
