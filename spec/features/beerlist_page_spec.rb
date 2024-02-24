@@ -28,23 +28,21 @@ describe "Beerlist page" do
     @beer1 = FactoryBot.create(:beer, name: "Nikolai", brewery: @brewery1, style:@style1)
     @beer2 = FactoryBot.create(:beer, name: "Fastenbier", brewery:@brewery2, style:@style2)
     @beer3 = FactoryBot.create(:beer, name: "Lechte Weisse", brewery:@brewery3, style:@style3)
+  # end
+    stub_request(:get, "https://googlechromelabs.github.io/chrome-for-testing/latest-patch-versions-per-build.json").
+          with(
+            headers: {
+            'Accept'=>'*/*',
+            'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+            'Host'=>'googlechromelabs.github.io',
+            'User-Agent'=>'Ruby'
+            }).
+          to_return(status: 200, body: '{"timestamp":"2024-02-22T21:08:58.088Z","versions":[{"version":"122.0.6261.69","revision":"1250580","downloads":{"chrome":[{"platform":"linux64","url":"https://storage.googleapis.com/chrome-for-testing-public/122.0.6261.69/linux64/chrome-linux64.zip"},{"platform":"mac-arm64","url":"https://storage.googleapis.com/chrome-for-testing-public/122.0.6261.69/mac-arm64/chrome-mac-arm64.zip"},{"platform":"mac-x64","url":"https://storage.googleapis.com/chrome-for-testing-public/122.0.6261.69/mac-x64/chrome-mac-x64.zip"},{"platform":"win32","url":"https://storage.googleapis.com/chrome-for-testing-public/122.0.6261.69/win32/chrome-win32.zip"},{"platform":"win64","url":"https://storage.googleapis.com/chrome-for-testing-public/122.0.6261.69/win64/chrome-win64.zip"}],"chromedriver":[{"platform":"linux64","url":"https://storage.googleapis.com/chrome-for-testing-public/122.0.6261.69/linux64/chromedriver-linux64.zip"},{"platform":"mac-arm64","url":"https://storage.googleapis.com/chrome-for-testing-public/122.0.6261.69/mac-arm64/chromedriver-mac-arm64.zip"},{"platform":"mac-x64","url":"https://storage.googleapis.com/chrome-for-testing-public/122.0.6261.69/mac-x64/chromedriver-mac-x64.zip"},{"platform":"win32","url":"https://storage.googleapis.com/chrome-for-testing-public/122.0.6261.69/win32/chromedriver-win32.zip"},{"platform":"win64","url":"https://storage.googleapis.com/chrome-for-testing-public/122.0.6261.69/win64/chromedriver-win64.zip"}],"chrome-headless-shell":[{"platform":"linux64","url":"https://storage.googleapis.com/chrome-for-testing-public/122.0.6261.69/linux64/chrome-headless-shell-linux64.zip"},{"platform":"mac-arm64","url":"https://storage.googleapis.com/chrome-for-testing-public/122.0.6261.69/mac-arm64/chrome-headless-shell-mac-arm64.zip"},{"platform":"mac-x64","url":"https://storage.googleapis.com/chrome-for-testing-public/122.0.6261.69/mac-x64/chrome-headless-shell-mac-x64.zip"},{"platform":"win32","url":"https://storage.googleapis.com/chrome-for-testing-public/122.0.6261.69/win32/chrome-headless-shell-win32.zip"},{"platform":"win64","url":"https://storage.googleapis.com/chrome-for-testing-public/122.0.6261.69/win64/chrome-headless-shell-win64.zip"}]}},]}}]}', headers: {})
   end
-
-
-  # stub_request(:get, "https://googlechromelabs.github.io/chrome-for-testing/latest-patch-versions-per-build.json").
-  #        with(
-  #          headers: {
-  #      	  'Accept'=>'*/*',
-  #      	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-  #      	  'Host'=>'googlechromelabs.github.io',
-  #      	  'User-Agent'=>'Ruby'
-  #          }).
-  #        to_return(status: 200, body: "", headers: {})
-
   it "shows one known beer", js:true do
     # Webdrivers::Chromedriver.required_version = "122.0.6261.57"
     # chromium.chromedriver --version
-    WebMock.allow_net_connect!
+    # WebMock.allow_net_connect!
     visit beerlist_path
     # sleep 1 # cludge
     # find('table').find('tr:nth-child(2)') # did not work! (but the actual test seems to wait properly, with out this)
