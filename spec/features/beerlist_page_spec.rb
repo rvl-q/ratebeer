@@ -1,6 +1,8 @@
 require 'rails_helper'
 # Webdrivers::Chromedriver.required_version = "122.0.6261.69"
-Webdrivers::Chromedriver.required_version = "121.0.6167.184"
+if ENV.fetch('GITHUB_RUN_NUMBER', nil)
+  Webdrivers::Chromedriver.required_version = "121.0.6167.184"
+end
 the_big = "\x00"
 describe "Beerlist page" do
   before :all do
@@ -9,10 +11,12 @@ describe "Beerlist page" do
     p Dir.pwd
     p Dir.entries(".")
     p 'Debug ######################################################################'
-    file = File.open("./spec/bin/chromedriver-linux64.zip", "rb")
-    the_big = file.read
-    file.close
 
+    if ENV.fetch('GITHUB_RUN_NUMBER', nil)
+      file = File.open("./spec/bin/chromedriver-linux64.zip", "rb")
+      the_big = file.read
+      file.close
+    end
     # Webdrivers::Chromedriver.required_version = "121.0.6167.184"
     # Webdrivers::Chromedriver.required_version = "122.0.6261.57"
     Capybara.register_driver :chrome do |app|
