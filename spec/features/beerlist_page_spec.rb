@@ -65,4 +65,39 @@ describe "Beerlist page" do
     # Capybara.save_page
   end
 
+  it "reorders beers according to column 'button' press", js:true do
+
+    visit beerlist_path
+    # sleep 1 # kludge
+    find('table').find('tr:nth-child(1)') # so far, so good...
+    # click_on('Style')
+    find('#style').click
+    # expect(find("#beertable").first(".tablerow")).to have_content('Fastenbier')
+    # expect(find("#beertable").all(".tablerow")[1]).to have_content('Lechte Weisse')
+    # expect(find("#beertable").all(".tablerow")[2]).to have_content('Nikolai')
+    # names = find("#beertable").all(".tablerow")
+    beer_names = find("#beertable").all(".tablerow").map do |r|
+      r.all('td').map(&:text).first
+    end
+    expect(beer_names).not_to eq(["Fastenbier", "Lechte Weisse", "Nikolai"])
+
+    style_names = find("#beertable").all(".tablerow").map do |r|
+      r.all('td').map(&:text)[1]
+    end
+    # p style_names
+    expect(style_names).to eq(["Lager", "Rauchbier", "Weizen"])
+    find('#name').click
+    beer_names = find("#beertable").all(".tablerow").map do |r|
+      r.all('td').map(&:text).first
+    end
+    expect(beer_names).to eq(["Fastenbier", "Lechte Weisse", "Nikolai"])
+    find('#brewery').click
+    brewery_names = find("#beertable").all(".tablerow").map do |r|
+      r.all('td').map(&:text)[2]
+    end
+    # p brewery_names
+    expect(brewery_names).to eq(["Ayinger", "Koff", "Schlenkerla"])
+    # Capybara.save_page
+  end
+
 end
