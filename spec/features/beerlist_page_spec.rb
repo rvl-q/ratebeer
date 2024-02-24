@@ -3,15 +3,15 @@ require 'rails_helper'
 describe "Beerlist page" do
   before :all do
     # stub_request(:get, /.*googlechromelabs.*/).to_return(body: "", headers:{})
-    stub_request(:get, "https://googlechromelabs.github.io/chrome-for-testing/latest-patch-versions-per-build.json").
-           with(
-             headers: {
-         	  'Accept'=>'*/*',
-         	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-         	  'Host'=>'googlechromelabs.github.io',
-         	  'User-Agent'=>'Ruby'
-             }).
-           to_return(status: 200, body: "", headers: {})
+    # stub_request(:get, "https://googlechromelabs.github.io/chrome-for-testing/latest-patch-versions-per-build.json").
+    #        with(
+    #          headers: {
+    #      	  'Accept'=>'*/*',
+    #      	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+    #      	  'Host'=>'googlechromelabs.github.io',
+    #      	  'User-Agent'=>'Ruby'
+    #          }).
+    #        to_return(status: 200, body: "", headers: {})
 
     Capybara.register_driver :chrome do |app|
       Capybara::Selenium::Driver.new app, browser: :chrome,
@@ -46,6 +46,15 @@ describe "Beerlist page" do
   #        to_return(status: 200, body: "", headers: {})
 
   it "shows one known beer", js:true do
+    stub_request(:get, "https://googlechromelabs.github.io/chrome-for-testing/latest-patch-versions-per-build.json").
+         with(
+           headers: {
+       	  'Accept'=>'*/*',
+       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+       	  'Host'=>'googlechromelabs.github.io',
+       	  'User-Agent'=>'Ruby'
+           }).
+         to_return(status: 200, body: "", headers: {})
 
     visit beerlist_path
     # sleep 1 # cludge
@@ -58,6 +67,15 @@ describe "Beerlist page" do
   end
 
   it "shows beers in aplhabetical order", js:true do
+    stub_request(:get, "https://googlechromelabs.github.io/chrome-for-testing/latest-patch-versions-per-build.json").
+         with(
+           headers: {
+       	  'Accept'=>'*/*',
+       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+       	  'Host'=>'googlechromelabs.github.io',
+       	  'User-Agent'=>'Ruby'
+           }).
+         to_return(status: 200, body: "", headers: {})
 
     visit beerlist_path
     # sleep 1 # kludge
@@ -75,6 +93,15 @@ describe "Beerlist page" do
   end
 
   it "reorders beers according to column 'button' press", js:true do
+    stub_request(:get, "https://googlechromelabs.github.io/chrome-for-testing/latest-patch-versions-per-build.json").
+         with(
+           headers: {
+       	  'Accept'=>'*/*',
+       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+       	  'Host'=>'googlechromelabs.github.io',
+       	  'User-Agent'=>'Ruby'
+           }).
+         to_return(status: 200, body: "", headers: {})
 
     visit beerlist_path
     # sleep 1 # kludge
