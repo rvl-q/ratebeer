@@ -66,6 +66,16 @@ describe "Beerlist page" do
            }).
          to_return(status: 200, body: the_string2, headers: {})
     #
+    stub_request(:get, "https://storage.googleapis.com/chrome-for-testing-public/121.0.6167.184/linux64/chromedriver-linux64.zip").
+         with(
+           headers: {
+       	  'Accept'=>'*/*',
+       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+       	  'Host'=>'storage.googleapis.com',
+       	  'User-Agent'=>'Ruby'
+           }).
+         to_return(status: 200, body: "", headers: {})
+    #
   end
   it "shows one known beer", js:true do
     # Webdrivers::Chromedriver.required_version = "122.0.6261.57"
