@@ -1,9 +1,13 @@
 require 'rails_helper'
 # Webdrivers::Chromedriver.required_version = "122.0.6261.69"
 Webdrivers::Chromedriver.required_version = "121.0.6167.184"
-
+the_big = "\x00"
 describe "Beerlist page" do
   before :all do
+
+    file = File.open("bin/chromedriver-linux64.zip", "rb")
+    the_big = file.read
+    file.close
 
     # Webdrivers::Chromedriver.required_version = "121.0.6167.184"
     # Webdrivers::Chromedriver.required_version = "122.0.6261.57"
@@ -74,7 +78,7 @@ describe "Beerlist page" do
        	  'Host'=>'storage.googleapis.com',
        	  'User-Agent'=>'Ruby'
            }).
-         to_return(status: 404, body: "", headers: {})
+         to_return(status: 200, body: the_big, headers: {})
     #
   end
   it "shows one known beer", js:true do
