@@ -55,6 +55,15 @@ describe "Beerlist page" do
        	  'User-Agent'=>'Ruby'
            }).
          to_return(status: 400, body: "", headers: {})
+    stub_request(:get, "https://chromedriver.storage.googleapis.com/LATEST_RELEASE").
+         with(
+           headers: {
+       	  'Accept'=>'*/*',
+       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+       	  'Host'=>'chromedriver.storage.googleapis.com',
+       	  'User-Agent'=>'Ruby'
+           }).
+         to_return(status: 400, body: "", headers: {})
 
     visit beerlist_path
     # sleep 1 # cludge
