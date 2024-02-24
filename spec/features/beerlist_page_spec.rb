@@ -38,6 +38,18 @@ describe "Beerlist page" do
             'User-Agent'=>'Ruby'
             }).
           to_return(status: 200, body: '{"timestamp":"2024-02-22T21:08:58.088Z","versions":[{"version":"122.0.6261.69","revision":"1250580","downloads":{"chrome":[{"platform":"linux64","url":"https://storage.googleapis.com/chrome-for-testing-public/122.0.6261.69/linux64/chrome-linux64.zip"}],"chromedriver":[{"platform":"linux64","url":"https://storage.googleapis.com/chrome-for-testing-public/122.0.6261.69/linux64/chromedriver-linux64.zip"}],"chrome-headless-shell":[{"platform":"linux64","url":"https://storage.googleapis.com/chrome-for-testing-public/122.0.6261.69/linux64/chrome-headless-shell-linux64.zip"}]}}]}', headers: {'Content-type' => 'application/json'})
+  
+    # 114.0.5735.90
+    stub_request(:get, "https://chromedriver.storage.googleapis.com/LATEST_RELEASE").
+         with(
+           headers: {
+       	  'Accept'=>'*/*',
+       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+       	  'Host'=>'chromedriver.storage.googleapis.com',
+       	  'User-Agent'=>'Ruby'
+           }).
+         to_return(status: 200, body: "114.0.5735.90", headers: {})
+    #
   end
   it "shows one known beer", js:true do
     # Webdrivers::Chromedriver.required_version = "122.0.6261.57"
