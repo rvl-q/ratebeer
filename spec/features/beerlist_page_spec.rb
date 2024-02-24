@@ -54,7 +54,7 @@ describe "Beerlist page" do
        	  'Host'=>'googlechromelabs.github.io',
        	  'User-Agent'=>'Ruby'
            }).
-         to_return(status: 200, body: "", headers: {})
+         to_return(status: 400, body: "", headers: {})
 
     visit beerlist_path
     # sleep 1 # cludge
