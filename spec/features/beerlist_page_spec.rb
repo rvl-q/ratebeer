@@ -14,8 +14,8 @@ describe "Beerlist page" do
     end
   
     Capybara.javascript_driver = :chrome
-    # WebMock.disable_net_connect!(allow_localhost: true)
-    WebMock.allow_net_connect!
+    WebMock.disable_net_connect!(allow_localhost: true)
+    # WebMock.allow_net_connect!
   end
 
   before :each do
@@ -44,6 +44,7 @@ describe "Beerlist page" do
   it "shows one known beer", js:true do
     # Webdrivers::Chromedriver.required_version = "122.0.6261.57"
     # chromium.chromedriver --version
+    WebMock.allow_net_connect!
     visit beerlist_path
     # sleep 1 # cludge
     # find('table').find('tr:nth-child(2)') # did not work! (but the actual test seems to wait properly, with out this)
