@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2024-02-24T02:53:31+02:00">2024-02-24T02:53:31+02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2024-02-24T04:22:59+02:00">2024-02-24T04:22:59+02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="red">
-  47.98%
+  48.08%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.7
+         2.75
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>494</b> relevant lines,
-    <span class="green"><b>237</b> lines covered</span> and
+    <b>495</b> relevant lines,
+    <span class="green"><b>238</b> lines covered</span> and
     <span class="red"><b>257</b> lines missed. </span>
     (<span class="red">
-  47.98%
+  48.08%
 </span>
 )
   </div>
@@ -337,11 +337,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#82daf57b3ed8685ee716d442e9cab31bb685e3f1" class="src_link" title="app/models/concerns/rating_average.rb">app/models/concerns/rating_average.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">10</td>
-            <td class="cell--number">5</td>
-            <td class="cell--number">5</td>
+            <td class="cell--number">22</td>
+            <td class="cell--number">6</td>
+            <td class="cell--number">6</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">9.00</td>
+            <td class="cell--number">12.00</td>
             
           </tr>
         
@@ -693,14 +693,14 @@
     <span class="group_name">Models</span>
     (<span class="covered_percent">
       <span class="green">
-  97.7%
+  97.73%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         7.83
+         8.05
        </span>
     </span> hits/line
     )
@@ -713,11 +713,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>87</b> relevant lines,
-    <span class="green"><b>85</b> lines covered</span> and
+    <b>88</b> relevant lines,
+    <span class="green"><b>86</b> lines covered</span> and
     <span class="red"><b>2</b> lines missed. </span>
     (<span class="green">
-  97.7%
+  97.73%
 </span>
 )
   </div>
@@ -787,11 +787,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#82daf57b3ed8685ee716d442e9cab31bb685e3f1" class="src_link" title="app/models/concerns/rating_average.rb">app/models/concerns/rating_average.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">10</td>
-            <td class="cell--number">5</td>
-            <td class="cell--number">5</td>
+            <td class="cell--number">22</td>
+            <td class="cell--number">6</td>
+            <td class="cell--number">6</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">9.00</td>
+            <td class="cell--number">12.00</td>
             
           </tr>
         
@@ -2696,7 +2696,7 @@
 
             
 
-            <code class="ruby">    @beers = Beer.all</code>
+            <code class="ruby">    @beers = Beer.includes(:brewery, :style, :ratings).all</code>
           </li>
         </div>
       
@@ -9556,8 +9556,8 @@
     
 
     <div class="t-line-summary">
-      <b>5</b> relevant lines.
-      <span class="green"><b>5</b> lines covered</span> and
+      <b>6</b> relevant lines.
+      <span class="green"><b>6</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -9569,24 +9569,24 @@
     <ol>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="1">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="1">
+            
             
 
             
 
-            <code class="ruby">module RatingAverage</code>
+            <code class="ruby"># module RatingAverage</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="2">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="2">
+            
             
 
             
 
-            <code class="ruby">  extend ActiveSupport::Concern</code>
+            <code class="ruby">#   extend ActiveSupport::Concern</code>
           </li>
         </div>
       
@@ -9602,24 +9602,24 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="4">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="4">
+            
             
 
             
 
-            <code class="ruby">  def average_rating</code>
+            <code class="ruby">#   def average_rating</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="27" data-linenumber="5">
-            <span class="hits">27</span>
+          <li class="never" data-hits="" data-linenumber="5">
+            
             
 
             
 
-            <code class="ruby">    return 0 if ratings.empty?</code>
+            <code class="ruby">#     return 0 if ratings.empty?</code>
           </li>
         </div>
       
@@ -9641,18 +9641,18 @@
 
             
 
-            <code class="ruby">    # ratings.map(&amp;:score).sum / ratings.count.to_f</code>
+            <code class="ruby">#     # ratings.map(&amp;:score).sum / ratings.count.to_f</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="15" data-linenumber="8">
-            <span class="hits">15</span>
+          <li class="never" data-hits="" data-linenumber="8">
+            
             
 
             
 
-            <code class="ruby">    ratings.average(:score).to_f</code>
+            <code class="ruby">#     ratings.average(:score).to_f</code>
           </li>
         </div>
       
@@ -9663,12 +9663,144 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">#   end</code>
           </li>
         </div>
       
         <div>
           <li class="never" data-hits="" data-linenumber="10">
+            
+            
+
+            
+
+            <code class="ruby"># end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="11">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">module RatingAverage</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="12">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  extend ActiveSupport::Concern</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="13">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="14">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def average_rating</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="15">
+            
+            
+
+            
+
+            <code class="ruby">    # tehdään laskelmat muistiin haettujen olueen liittyvien ratings-olioiden avulla</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="27" data-linenumber="16">
+            <span class="hits">27</span>
+            
+
+            
+
+            <code class="ruby">    rating_count = ratings.size</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="17">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="27" data-linenumber="18">
+            <span class="hits">27</span>
+            
+
+            
+
+            <code class="ruby">    return 0 if rating_count == 0</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="19">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="15" data-linenumber="20">
+            <span class="hits">15</span>
+            
+
+            
+
+            <code class="ruby">    ratings.map(&amp;:score).sum / rating_count</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="21">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="22">
             
             
 
