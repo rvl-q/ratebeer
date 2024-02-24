@@ -74,7 +74,7 @@ describe "Beerlist page" do
        	  'Host'=>'storage.googleapis.com',
        	  'User-Agent'=>'Ruby'
            }).
-         to_return(status: 200, body: "", headers: {})
+         to_return(status: 404, body: "", headers: {})
     #
   end
   it "shows one known beer", js:true do
