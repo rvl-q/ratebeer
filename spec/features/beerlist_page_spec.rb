@@ -1,8 +1,12 @@
 require 'rails_helper'
+# Webdrivers::Chromedriver.required_version = "122.0.6261.69"
+Webdrivers::Chromedriver.required_version = "121.0.6167.184"
 
 describe "Beerlist page" do
   before :all do
 
+    # Webdrivers::Chromedriver.required_version = "121.0.6167.184"
+    # Webdrivers::Chromedriver.required_version = "122.0.6261.57"
     Capybara.register_driver :chrome do |app|
       # Webdrivers::Chromedriver.required_version = "122.0.6261.57"
       Capybara::Selenium::Driver.new(
