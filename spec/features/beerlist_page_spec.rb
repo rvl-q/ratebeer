@@ -30,6 +30,7 @@ describe "Beerlist page" do
     @beer3 = FactoryBot.create(:beer, name: "Lechte Weisse", brewery:@brewery3, style:@style3)
   end
 
+
   # stub_request(:get, "https://googlechromelabs.github.io/chrome-for-testing/latest-patch-versions-per-build.json").
   #        with(
   #          headers: {
@@ -43,7 +44,6 @@ describe "Beerlist page" do
   it "shows one known beer", js:true do
     # Webdrivers::Chromedriver.required_version = "122.0.6261.57"
     # chromium.chromedriver --version
-
     visit beerlist_path
     # sleep 1 # cludge
     # find('table').find('tr:nth-child(2)') # did not work! (but the actual test seems to wait properly, with out this)
@@ -55,6 +55,8 @@ describe "Beerlist page" do
   end
 
   it "shows beers in aplhabetical order", js:true do
+    #driver.block_unknown_urls
+
     visit beerlist_path
     # sleep 1 # kludge
     find('table').find('tr:nth-child(1)') # so far, so good...
@@ -71,6 +73,8 @@ describe "Beerlist page" do
   end
 
   it "reorders beers according to column 'button' press", js:true do
+    #driver.block_unknown_urls
+
     visit beerlist_path
     # sleep 1 # kludge
     find('table').find('tr:nth-child(1)') # so far, so good...
