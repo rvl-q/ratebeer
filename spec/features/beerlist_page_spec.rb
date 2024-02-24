@@ -36,7 +36,7 @@ describe "Beerlist page" do
   #          }).
   #        to_return(status: 200, body: "", headers: {})
 
-  it "shows one known beer", js:true do    
+  it "shows one known beer", js:true do
 
     visit beerlist_path
     # sleep 1 # cludge
@@ -47,4 +47,22 @@ describe "Beerlist page" do
     expect(page).to have_content "Nikolai"
     # Capybara.save_page # OK, here we get the loaded page
   end
+
+  it "shows beers in aplhabetical order", js:true do
+
+    visit beerlist_path
+    # sleep 1 # kludge
+    find('table').find('tr:nth-child(1)') # so far, so good...
+    # expect(find("#beertable").first(".tablerow")).to have_content('Fastenbier')
+    # expect(find("#beertable").all(".tablerow")[1]).to have_content('Lechte Weisse')
+    # expect(find("#beertable").all(".tablerow")[2]).to have_content('Nikolai')
+    # names = find("#beertable").all(".tablerow")
+    beernames = find("#beertable").all(".tablerow").map do |r|
+      r.all('td').map(&:text).first
+    end
+    # p names
+    expect(beernames).to eq(["Fastenbier", "Lechte Weisse", "Nikolai"])
+    # Capybara.save_page
+  end
+
 end
