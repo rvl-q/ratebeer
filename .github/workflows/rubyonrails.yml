@@ -40,11 +40,11 @@ jobs:
       #   with:
       #     chrome-version: stable
       - name: Check driver
-        run: chromedriver --version; chrome --version
+        run: chromedriver --version #; chrome --version
       - name: Run tests
         run: bundle exec rspec
       - name: Check driver again
-        run: chromedriver --version; chrome --version
+        run: chromedriver --version #; chrome --version
       - name: Run RuboCop
         run: bundle exec rubocop --parallel
   # # Deploy to fly.io
