@@ -35,8 +35,8 @@ jobs:
           bundler-cache: true
       - name: Get driver
         run: sudo apt install fonts-liberation libappindicator3-1 libasound2 libgbm1 libnspr4 libnss3 libxss1 xdg-utils libu2f-udev libvulkan1; wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb; sudo dpkg -i google-chrome-stable_current_amd64.deb; alias chrome="google-chrome-stable"
-      - name: Check version
-        run: echo Dummy chromium.chromedriver --version
+      - name: Get the actual driver
+        run: wget https://storage.googleapis.com/chrome-for-testing-public/122.0.6261.69/linux64/chrome-linux64.zip; unzip chromedriver_linux64.zip; sudo mv chromedriver /usr/bin/chromedriver; sudo chown root:root /usr/bin/chromedriver; sudo chmod +x /usr/bin/chromedriver
       - name: Run tests
         run: bundle exec rspec
       - name: Run RuboCop
