@@ -34,7 +34,7 @@ jobs:
         with:
           bundler-cache: true
       - name: Check versions
-        run: chromium.chromedriver --version
+        run: chrome --version
       - name: Run tests
         run: bundle exec rspec
       - name: Run RuboCop
