@@ -2,25 +2,20 @@ require 'rails_helper'
 
 describe "Beerlist page" do
   before :all do
-    # stub_request(:get, /.*googlechromelabs.*/).to_return(body: "", headers:{})
-    # stub_request(:get, "https://googlechromelabs.github.io/chrome-for-testing/latest-patch-versions-per-build.json").
-    #        with(
-    #          headers: {
-    #      	  'Accept'=>'*/*',
-    #      	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-    #      	  'Host'=>'googlechromelabs.github.io',
-    #      	  'User-Agent'=>'Ruby'
-    #          }).
-    #        to_return(status: 200, body: "", headers: {})
 
     Capybara.register_driver :chrome do |app|
-      Capybara::Selenium::Driver.new app, browser: :chrome,
-      options: Selenium::WebDriver::Chrome::Options.new(args: %w[headless disable-gpu])
-      # options: Selenium::WebDriver::Chrome::Options.new(args: %w[disable-gpu])
+      # Webdrivers::Chromedriver.required_version = "122.0.6261.57"
+      Capybara::Selenium::Driver.new(
+        app, 
+        browser: :chrome,
+        options: Selenium::WebDriver::Chrome::Options.new(args: %w[headless disable-gpu]),
+        # options: Selenium::WebDriver::Chrome::Options.new(args: %w[disable-gpu])
+      )
     end
   
     Capybara.javascript_driver = :chrome
     WebMock.disable_net_connect!(allow_localhost: true)
+    # WebMock.allow_net_connect!
   end
 
   before :each do
@@ -46,24 +41,8 @@ describe "Beerlist page" do
   #        to_return(status: 200, body: "", headers: {})
 
   it "shows one known beer", js:true do
-    stub_request(:get, "https://googlechromelabs.github.io/chrome-for-testing/latest-patch-versions-per-build.json").
-         with(
-           headers: {
-       	  'Accept'=>'*/*',
-       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-       	  'Host'=>'googlechromelabs.github.io',
-       	  'User-Agent'=>'Ruby'
-           }).
-         to_return(status: 400, body: "", headers: {})
-    stub_request(:get, "https://chromedriver.storage.googleapis.com/LATEST_RELEASE").
-         with(
-           headers: {
-       	  'Accept'=>'*/*',
-       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-       	  'Host'=>'chromedriver.storage.googleapis.com',
-       	  'User-Agent'=>'Ruby'
-           }).
-         to_return(status: 400, body: "", headers: {})
+    # Webdrivers::Chromedriver.required_version = "122.0.6261.57"
+    # chromium.chromedriver --version
 
     visit beerlist_path
     # sleep 1 # cludge
@@ -76,16 +55,6 @@ describe "Beerlist page" do
   end
 
   it "shows beers in aplhabetical order", js:true do
-    stub_request(:get, "https://googlechromelabs.github.io/chrome-for-testing/latest-patch-versions-per-build.json").
-         with(
-           headers: {
-       	  'Accept'=>'*/*',
-       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-       	  'Host'=>'googlechromelabs.github.io',
-       	  'User-Agent'=>'Ruby'
-           }).
-         to_return(status: 200, body: "", headers: {})
-
     visit beerlist_path
     # sleep 1 # kludge
     find('table').find('tr:nth-child(1)') # so far, so good...
@@ -102,16 +71,6 @@ describe "Beerlist page" do
   end
 
   it "reorders beers according to column 'button' press", js:true do
-    stub_request(:get, "https://googlechromelabs.github.io/chrome-for-testing/latest-patch-versions-per-build.json").
-         with(
-           headers: {
-       	  'Accept'=>'*/*',
-       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-       	  'Host'=>'googlechromelabs.github.io',
-       	  'User-Agent'=>'Ruby'
-           }).
-         to_return(status: 200, body: "", headers: {})
-
     visit beerlist_path
     # sleep 1 # kludge
     find('table').find('tr:nth-child(1)') # so far, so good...
