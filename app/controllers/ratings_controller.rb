@@ -1,5 +1,6 @@
 class RatingsController < ApplicationController
   before_action :ensure_that_signed_in, except: [:index, :show]
+  before_action :expire_brewerylist, only: [:destroy, :new, :create]
 
   def index
     @ratings = Rating.includes(:beer, :user).all

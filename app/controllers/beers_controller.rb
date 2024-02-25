@@ -96,8 +96,9 @@ class BeersController < ApplicationController
     params.require(:beer).permit(:name, :style_id, :brewery_id)
   end
 
-  # Clear the cache before entering modifying methods.
+  # Clear the cache before entering modifying methods. TODO: this should really go into the application controller, too.
   def expire_beerlists
     %w(beerlist-name beerlist-brewery beerlist-style beerlist-rating).each{ |f| expire_fragment(f) }
+    expire_brewerylist
   end
 end

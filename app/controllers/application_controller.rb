@@ -16,4 +16,9 @@ class ApplicationController < ActionController::Base
     # ensure_that_signed_in
     redirect_to signin_path, notice: 'you should be signed in as an admin' unless current_user&.admin?
   end
+
+  # Expire cached brewery list
+  def expire_brewerylist
+    %w(brewerylist).each{ |f| expire_fragment(f) }
+  end
 end

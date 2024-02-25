@@ -4,7 +4,7 @@
 <% if @beer.ratings.empty? %>
  Beer has not yet been rated!
 <% else %>
- Beer has <%= pluralize(@beer.ratings.count, 'rating') %> with an average of <%= round(@beer.average_rating) %>
+ Beer has <%= pluralize(@beer.ratings.count, 'rating') %> with an average of <%= round(@beer.average_rating, prec: 3) %>
 <% end %>
 
 <% if current_user %>

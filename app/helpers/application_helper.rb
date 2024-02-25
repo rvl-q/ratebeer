@@ -19,7 +19,7 @@ module ApplicationHelper
     number_with_precision(num, precision: 1).to_s
   end
 
-  def round(num)
-    number_with_precision(num, precision: 1).to_s
+  def round(num, prec: 1)
+    number_with_precision(num, precision: prec).to_s
   end
 end
