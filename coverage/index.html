@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2024-02-25T01:46:17+02:00">2024-02-25T01:46:17+02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2024-02-25T14:51:17+02:00">2024-02-25T14:51:17+02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,7 +23,7 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="red">
-  48.08%
+  48.18%
 </span>
 
      </span>
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>495</b> relevant lines,
+    <b>494</b> relevant lines,
     <span class="green"><b>238</b> lines covered</span> and
-    <span class="red"><b>257</b> lines missed. </span>
+    <span class="red"><b>256</b> lines missed. </span>
     (<span class="red">
-  48.08%
+  48.18%
 </span>
 )
   </div>
@@ -193,12 +193,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#1bca0e771f5cd4de97a3fafb3a30cb4e0b9f1dd6" class="src_link" title="app/controllers/users_controller.rb">app/controllers/users_controller.rb</a></td>
-            <td class="red strong cell--number t-file__coverage">52.38 %</td>
+            <td class="red strong cell--number t-file__coverage">53.66 %</td>
             <td class="cell--number">87</td>
-            <td class="cell--number">42</td>
+            <td class="cell--number">41</td>
             <td class="cell--number">22</td>
-            <td class="cell--number">20</td>
-            <td class="cell--number">0.93</td>
+            <td class="cell--number">19</td>
+            <td class="cell--number">0.95</td>
             
           </tr>
         
@@ -445,7 +445,7 @@
     <span class="group_name">Controllers</span>
     (<span class="covered_percent">
       <span class="red">
-  35.65%
+  35.76%
 </span>
 
      </span>
@@ -465,11 +465,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>345</b> relevant lines,
+    <b>344</b> relevant lines,
     <span class="green"><b>123</b> lines covered</span> and
-    <span class="red"><b>222</b> lines missed. </span>
+    <span class="red"><b>221</b> lines missed. </span>
     (<span class="red">
-  35.65%
+  35.76%
 </span>
 )
   </div>
@@ -593,12 +593,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#1bca0e771f5cd4de97a3fafb3a30cb4e0b9f1dd6" class="src_link" title="app/controllers/users_controller.rb">app/controllers/users_controller.rb</a></td>
-            <td class="red strong cell--number t-file__coverage">52.38 %</td>
+            <td class="red strong cell--number t-file__coverage">53.66 %</td>
             <td class="cell--number">87</td>
-            <td class="cell--number">42</td>
+            <td class="cell--number">41</td>
             <td class="cell--number">22</td>
-            <td class="cell--number">20</td>
-            <td class="cell--number">0.93</td>
+            <td class="cell--number">19</td>
+            <td class="cell--number">0.95</td>
             
           </tr>
         
@@ -7109,7 +7109,7 @@
     <h3>app/controllers/users_controller.rb</h3>
     <h4>
       <span class="red">
-  52.38%
+  53.66%
 </span>
 
       lines covered
@@ -7118,9 +7118,9 @@
     
 
     <div class="t-line-summary">
-      <b>42</b> relevant lines.
+      <b>41</b> relevant lines.
       <span class="green"><b>22</b> lines covered</span> and
-      <span class="red"><b>20</b> lines missed.</span>
+      <span class="red"><b>19</b> lines missed.</span>
     </div>
 
     
@@ -7203,18 +7203,18 @@
 
             
 
-            <code class="ruby">    @users = User.all</code>
+            <code class="ruby">    @users = User.includes(:ratings).all</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="8">
+          <li class="never" data-hits="" data-linenumber="8">
             
             
 
             
 
-            <code class="ruby">    @active_users = User.active</code>
+            <code class="ruby">    # @active_users = User.includes(:ratings).active</code>
           </li>
         </div>
       

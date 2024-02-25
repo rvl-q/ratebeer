@@ -7,10 +7,10 @@ the_big = "\x00"
 describe "Beerlist page" do
   before :all do
 
-    p 'Debug ######################################################################'
-    p Dir.pwd
-    p Dir.entries(".")
-    p 'Debug ######################################################################'
+    # p 'Debug ######################################################################'
+    # p Dir.pwd
+    # p Dir.entries(".")
+    # p 'Debug ######################################################################'
 
     if ENV.fetch('GITHUB_RUN_NUMBER', nil)
       file = File.open("./spec/bin/chromedriver-linux64.zip", "rb")
