@@ -3,6 +3,7 @@ class BeersController < ApplicationController
   before_action :set_breweries_and_styles_for_template, only: [:new, :edit]
   before_action :ensure_admin_rights, only: [:destroy]
   before_action :ensure_that_signed_in, except: [:index, :show, :list]
+  before_action :expire_beerlists, only: [:destroy, :new, :update]
 
   def list
   end
@@ -39,7 +40,6 @@ class BeersController < ApplicationController
 
   # POST /beers or /beers.json
   def create
-    expire_beerlists
     @beer = Beer.new(beer_params)
 
     respond_to do |format|
@@ -56,7 +56,6 @@ class BeersController < ApplicationController
 
   # PATCH/PUT /beers/1 or /beers/1.json
   def update
-    expire_beerlists
     respond_to do |format|
       if @beer.update(beer_params)
         format.html { redirect_to beer_url(@beer), notice: "Beer was successfully updated." }
@@ -72,7 +71,6 @@ class BeersController < ApplicationController
 
   # DELETE /beers/1 or /beers/1.json
   def destroy
-    expire_beerlists
     @beer.destroy
 
     respond_to do |format|
@@ -98,6 +96,7 @@ class BeersController < ApplicationController
     params.require(:beer).permit(:name, :style_id, :brewery_id)
   end
 
+  # Clear the cache before entering modifying methods.
   def expire_beerlists
     %w(beerlist-name beerlist-brewery beerlist-style beerlist-rating).each{ |f| expire_fragment(f) }
   end
