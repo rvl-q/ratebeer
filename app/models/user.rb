@@ -15,10 +15,17 @@ class User < ApplicationRecord
 
   scope :active, -> { where active: true }
 
-  def favorite_beer
-    return nil if ratings.empty? # palautetaan nil jos reittauksia ei ole
+  # def favorite_beer
+  #   return nil if ratings.empty? # palautetaan nil jos reittauksia ei ole
 
-    ratings.order(score: :desc).limit(1).first.beer
+  #   ratings.order(score: :desc).limit(1).first.beer
+  # end
+
+  # Eager version
+  def favorite_beer
+    return nil if ratings.empty?
+
+    ratings.max_by(&:score).beer
   end
 
   # def favorite_style
