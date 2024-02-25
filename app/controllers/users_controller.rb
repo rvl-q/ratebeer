@@ -4,8 +4,8 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    @users = User.all
-    @active_users = User.active
+    @users = User.includes(:ratings).all
+    @active_users = User.includes(:ratings).active
   end
 
   # GET /users/1 or /users/1.json
