@@ -15,7 +15,7 @@ module RatingAverage
     # tehdään laskelmat muistiin haettujen olueen liittyvien ratings-olioiden avulla
     rating_count = ratings.size
 
-    return 0 if rating_count == 0
+    return 0.0 if rating_count == 0
 
     ratings.map(&:score).sum.to_f / rating_count
   end

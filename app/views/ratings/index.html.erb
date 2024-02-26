@@ -36,18 +36,21 @@
   <% end %>
 </ul>
 <h2>List of ratings</h2>
-<p>
-    Number of ratings:
-    <%= @ratings.count %>
-</p>
-<ul>
-  <% @ratings.each do |rating| %>
-    <li>
-      <%= render rating %>
-      <%= link_to rating.user.username, rating.user %>
-    </li>
-  <% end %>
-</ul>
+
+<% cache @ratings do %>
+  <p>
+      Number of ratings:
+      <%= @ratings.count %>
+  </p>
+  <ul>
+    <% @ratings.each do |rating| %>
+      <li>
+        <%= render rating %>
+        <%= link_to rating.user.username, rating.user %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
 <p>
     <%= link_to('create new rating', new_rating_path, class:'btn btn-primary') if current_user %>
 </p>
