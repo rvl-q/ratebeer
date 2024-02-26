@@ -1,10 +1,10 @@
 <div id="<%= dom_id brewery %>">
-  <h4>
-    <%= link_to(brewery.name, brewery) %>
+  <h3>
+    <%= brewery.name %>
     <% if not brewery.active  %>
       <span class="badge bg-secondary">retired</span>
     <% end %>
-  </h4>
+  </h3>
 
   <em>
     Established in
@@ -15,8 +15,29 @@
     <%= brewery.beers.count %>
   </p>
   <p>
-    <% brewery.beers.each do |beer| %>
-      <%= link_to beer.name, beer %>
-    <% end %>
+    <h4>
+      Beers
+    </h4>
+
+    <div>
+      <table id="brewerybeerstable" class="table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Style</th>
+          <th>Rating</th>
+        </tr>
+      <thead>
+      <tbody>
+        <% brewery.beers.each do |beer| %>
+          <tr>
+            <td><%= link_to beer.name, beer %></td>
+            <td><%= link_to "#{beer.style.name}", style_path(beer.style) %></td>
+            <td><%= round beer.average_rating %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
   </p>
 </div>

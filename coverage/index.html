@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2024-02-26T00:26:54+02:00">2024-02-26T00:26:54+02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2024-02-26T13:15:34+02:00">2024-02-26T13:15:34+02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -3849,7 +3849,7 @@
 
             
 
-            <code class="ruby">  before_action :expire_brewerylist, only: [:destroy, :new, :update]</code>
+            <code class="ruby">  before_action :expire_brewerylist, only: [:destroy, :new, :update, :toggle_activity]</code>
           </li>
         </div>
       
@@ -10273,7 +10273,7 @@
 
             
 
-            <code class="ruby">  belongs_to :beer</code>
+            <code class="ruby">  belongs_to :beer, touch: true</code>
           </li>
         </div>
       
