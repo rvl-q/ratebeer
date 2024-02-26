@@ -1,5 +1,6 @@
 class Beer < ApplicationRecord
   include RatingAverage
+  extend TopRank
 
   validates :name, presence: true
   # validates :style, presence: true
@@ -19,7 +20,7 @@ class Beer < ApplicationRecord
   #   ratings.map(:score).sum / ratings.count.to_f
   # end
 
-  def self.top(nnn)
-    Beer.all.sort_by{ |b| -b.average_rating }.first(nnn)
-  end
+  # def self.top(nnn)
+  #   Beer.all.sort_by{ |b| -b.average_rating }.first(nnn)
+  # end
 end
