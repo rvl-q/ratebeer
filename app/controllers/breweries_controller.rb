@@ -2,7 +2,7 @@ class BreweriesController < ApplicationController
   before_action :set_brewery, only: %i[show edit update destroy]
   before_action :ensure_admin_rights, only: [:destroy]
   before_action :ensure_that_signed_in, except: [:index, :show, :list]
-  before_action :expire_brewerylist, only: [:destroy, :new, :update]
+  before_action :expire_brewerylist, only: [:destroy, :new, :update, :toggle_activity]
 
   # GET /breweries or /breweries.json
   def index
