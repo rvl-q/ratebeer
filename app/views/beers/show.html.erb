@@ -1,11 +1,30 @@
 
-<%= render @beer %>
+<%# <%= render @beer % > %>
 
-<% if @beer.ratings.empty? %>
- Beer has not yet been rated!
-<% else %>
- Beer has <%= pluralize(@beer.ratings.count, 'rating') %> with an average of <%= round(@beer.average_rating, prec: 3) %>
+<% cache @beer do %>
+
+  <h3>
+    <%= @beer.name %>
+  </h3>
+  <p>
+    <%= @beer.style.name %>
+  </p>
+
+  <p>
+    <%= link_to "#{@beer.brewery.name}", @beer.brewery %>
+  </p>
+
+  <p>
+    <% if @beer.ratings.empty? %>
+    Beer has not yet been rated!
+    <% else %>
+    Beer has <%= pluralize(@beer.ratings.count, 'rating') %> with an average of <%= round(@beer.average_rating, prec: 3) %>
+    <% end %>
+
+  </p>
 <% end %>
+
+<!- cachaamaton osa ->
 
 <% if current_user %>
   <h4>give a rating:</h4>
@@ -17,6 +36,7 @@
   <% end %>
 
 <% end %>
+
 
 <div>
   <%= edit_and_destroy_buttons(@beer) %>
