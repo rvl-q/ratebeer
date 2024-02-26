@@ -2,6 +2,8 @@ class StylesController < ApplicationController
   before_action :ensure_admin_rights, only: [:destroy]
   before_action :ensure_that_signed_in, except: [:index, :show]
 
+  after_action :update_children, only: [:update]
+
   def index
     @styles = Style.all
   end
@@ -45,5 +47,20 @@ class StylesController < ApplicationController
     style = Style.find params[:id]
     style.delete if current_user
     redirect_to styles_path, notice: 'Style was successfully deleted.'
+  end
+
+  # Backward touch the labourous way. There must be a better way...
+  def update_children
+    p 'Debug, style was updated'
+    p Time.now
+    @beers = Beer.where style_id: @style.id
+    @beers.each do |beer|
+      p beer
+      beer.updated_at = @style.updated_at
+      beer.save
+    end
+    p Time.now
+    p @style.updated_at
+    p 'Debug, all beers done'
   end
 end

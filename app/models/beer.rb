@@ -4,8 +4,8 @@ class Beer < ApplicationRecord
   validates :name, presence: true
   # validates :style, presence: true
 
-  belongs_to :style
-  belongs_to :brewery
+  belongs_to :style # we need "backward touch" here
+  belongs_to :brewery, touch: true
   has_many :ratings, dependent: :destroy
   has_many :raters, -> { distinct }, through: :ratings, source: :user
 

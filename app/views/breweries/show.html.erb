@@ -1,10 +1,12 @@
 
-<%= render @brewery %>
+<% cache @brewery do %>
+  <%= render @brewery %>
 
-<% if @brewery.ratings.empty? %>
- Brewery has not yet been rated!
-<% else %>
- Brewery has <%= pluralize(@brewery.ratings.count, 'rating') %> with an average of <%= round(@brewery.average_rating, prec: 3) %>
+  <% if @brewery.ratings.empty? %>
+  Brewery has not yet been rated!
+  <% else %>
+  Brewery has <%= pluralize(@brewery.ratings.count, 'rating') %> with an average of <%= round(@brewery.average_rating, prec: 3) %>
+  <% end %>
 <% end %>
 
 <div>
