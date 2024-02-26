@@ -51,16 +51,16 @@ class StylesController < ApplicationController
 
   # Backward touch the labourous way. There must be a better way...
   def update_children
-    p 'Debug, style was updated'
-    p Time.now
+    # p 'Debug, style was updated'
+    # p Time.now
     @beers = Beer.where style_id: @style.id
     @beers.each do |beer|
-      p beer
+      # p beer
       beer.updated_at = @style.updated_at
       beer.save
     end
-    p Time.now
-    p @style.updated_at
-    p 'Debug, all beers done'
+    # p Time.now
+    # p @style.updated_at
+    # p 'Debug, all beers done'
   end
 end
