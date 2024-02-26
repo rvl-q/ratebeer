@@ -107,3 +107,4 @@ gem 'mini_racer'
 # gem 'mini_racer', '~> 0.7.0'
 
 gem 'rack-mini-profiler'
+gem 'sucker_punch', '~> 3.0'
