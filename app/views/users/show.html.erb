@@ -21,10 +21,19 @@
   <%= link_to "change status", toggle_activity_user_path(@user.id), data: {turbo_method: "post"}, class: "btn btn-danger" %>
 <% end %>
 
-<h4>member of</h4>
-
+<h4>Beer clubs</h4>
+<h5>member of</h5>
 <ul>
-  <% @user.beer_clubs.each do |club| %>
+  <% @user.confirmed_beer_clubs.each do |club| %>
+    <li>
+      <%= link_to club, club %>
+    </li>
+  <% end %>
+</ul>
+
+<h5>applied membership of</h5>
+<ul>
+  <% @user.applications.each do |club| %>
     <li>
       <%= link_to club, club %>
     </li>

@@ -3,15 +3,15 @@
 
 <h3>members</h3>
 <ul>
-  <% @beer_club.members.each do |user| %>
+  <% @beer_club.full_members.each do |user| %>
     <li>
       <%= link_to user.username, user %>
-      &nbsp;
       <% m_id = Membership.where(user_id: user.id).where(beer_club_id: @beer_club.id).first.id %>
-      <% p '#######################################################################################' %>
-      <% p m_id %>
-      <% p '#######################################################################################' %>
-      <%= link_to "change status", toggle_activity_membership_path(m_id), data: {turbo_method: "post"}, class: "btn btn-primary btn-sm" %>
+      <%# p '#######################################################################################' %>
+      <%# p m_id %>
+      <%# p '#######################################################################################' %>
+      <%= link_to "un-confirm", toggle_activity_membership_path(m_id), data: {turbo_method: "post"}, class: "btn btn-primary btn-sm" %>
+      <%#= link_to "confirm", toggle_activity_membership_path(m_id), data: {turbo_method: "post"}, class: "btn btn-primary btn-sm" %>
     </li>
   <% end %>
 </ul>
@@ -22,10 +22,10 @@
     <li>
       <%= link_to user.username, user %>
       <% m_id = Membership.where(user_id: user.id).where(beer_club_id: @beer_club.id).first.id %>
-      <% p '#######################################################################################' %>
-      <% p m_id %>
-      <% p '#######################################################################################' %>
-      <%= link_to "change status", toggle_activity_membership_path(m_id), data: {turbo_method: "post"}, class: "btn btn-primary btn-sm" %>
+      <%# p '#######################################################################################' %>
+      <%# p m_id; bindings pry %>
+      <%# p '#######################################################################################' %>
+      <%= link_to "confirm", toggle_activity_membership_path(m_id), data: {turbo_method: "post"}, class: "btn btn-primary btn-sm" %>
     </li>
   <% end %>
 </ul>

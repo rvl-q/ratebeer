@@ -8,7 +8,7 @@ class BeerClub < ApplicationRecord
   # has_many :applicants, class_name: "User", through: :pending_memberships
   # has_many :applicants, :through => :pending_memberships, :source => :user
   has_many :applicants, through: :pending_memberships, source: :user
-  has_many :members, through: :confirmed_memberships, source: :user
+  has_many :full_members, through: :confirmed_memberships, source: :user
 
   def to_s
     name

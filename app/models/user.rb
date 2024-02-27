@@ -13,6 +13,14 @@ class User < ApplicationRecord
   has_many :memberships, dependent: :destroy
   has_many :beer_clubs, through: :memberships
 
+  has_many :pending_memberships, -> { where confirmed: [nil, false] },
+           class_name: "Membership"
+  has_many :confirmed_memberships, -> { where confirmed: true },
+           class_name: "Membership"
+
+  has_many :confirmed_beer_clubs, through: :confirmed_memberships, source: :beer_club
+  has_many :applications, through: :pending_memberships, source: :beer_club
+
   scope :active, -> { where active: true }
 
   # def favorite_beer
