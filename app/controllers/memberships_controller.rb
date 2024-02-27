@@ -1,9 +1,10 @@
 class MembershipsController < ApplicationController
-  before_action :set_membership, only: %i[how edit update destroy]
+  before_action :set_membership, only: %i[show edit update destroy]
 
   # GET /memberships or /memberships.json
   def index
     @memberships = Membership.all
+    @applicants = Pending_membership.all
   end
 
   # GET /memberships/1 or /memberships/1.json
@@ -61,6 +62,16 @@ class MembershipsController < ApplicationController
       format.html { redirect_to user_path(current_user), notice: "Membership in #{@beer_club} ended." }
       format.json { head :no_content }
     end
+  end
+
+  # Toggle
+  def toggle_activity
+    membership = Membership.find(params[:id])
+    membership.update_attribute :confirmed, !membership.confirmed
+
+    new_status = membership.confirmed? ? "confirmed" : "pending"
+
+    redirect_to membership.beer_club, notice: "membership status changed to #{new_status}"
   end
 
   private

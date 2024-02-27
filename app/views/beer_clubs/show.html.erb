@@ -3,9 +3,29 @@
 
 <h3>members</h3>
 <ul>
-  <% @beer_club.users.each do |user| %>
+  <% @beer_club.members.each do |user| %>
     <li>
       <%= link_to user.username, user %>
+      &nbsp;
+      <% m_id = Membership.where(user_id: user.id).where(beer_club_id: @beer_club.id).first.id %>
+      <% p '#######################################################################################' %>
+      <% p m_id %>
+      <% p '#######################################################################################' %>
+      <%= link_to "change status", toggle_activity_membership_path(m_id), data: {turbo_method: "post"}, class: "btn btn-primary btn-sm" %>
+    </li>
+  <% end %>
+</ul>
+
+<h4>membership applications</h4>
+<ul>
+  <% @beer_club.applicants.each do |user| %>
+    <li>
+      <%= link_to user.username, user %>
+      <% m_id = Membership.where(user_id: user.id).where(beer_club_id: @beer_club.id).first.id %>
+      <% p '#######################################################################################' %>
+      <% p m_id %>
+      <% p '#######################################################################################' %>
+      <%= link_to "change status", toggle_activity_membership_path(m_id), data: {turbo_method: "post"}, class: "btn btn-primary btn-sm" %>
     </li>
   <% end %>
 </ul>
@@ -16,14 +36,14 @@
       <%= form_with(model: Membership.new) do |form| %>
         <%= form.hidden_field :beer_club_id, value: @beer_club.id %>
         <%= form.hidden_field :user_id, value: current_user.id %>
-        <%= form.submit "Join the beer club", class:"btn btn-primary" %>
+        <%= form.submit "Join the beer club", class:"btn btn-primary btn-sm" %>
       <% end %>
     <% else %>
       <%= form_with(model: @membership, method: :delete) do |form| %>
-        <% m = Membership.where(user_id: 1).where(beer_club_id: 1) %>
+        <%# m = Membership.where(user_id: 1).where(beer_club_id: 1) %>
         <%= form.hidden_field :beer_club_id, value: @beer_club.id %>
         <%= form.hidden_field :user_id, value: current_user.id %>
-        <%= form.submit "End the membership", class:"btn btn-primary" %>
+        <%= form.submit "End the membership", class:"btn btn-primary btn-sm" %>
       <% end %>
     <% end %>
   <% end %>

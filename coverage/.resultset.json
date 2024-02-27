@@ -97,6 +97,16 @@
           null
         ]
       },
+      "/home/rvl/kod/ror/wepa/ratebeer/app/models/concerns/top_rank.rb": {
+        "lines": [
+          null,
+          1,
+          1,
+          7,
+          null,
+          null
+        ]
+      },
       "/home/rvl/kod/ror/wepa/ratebeer/app/models/concerns/rating_average.rb": {
         "lines": [
           null,
@@ -119,16 +129,6 @@
           34,
           null,
           15,
-          null,
-          null
-        ]
-      },
-      "/home/rvl/kod/ror/wepa/ratebeer/app/models/concerns/top_rank.rb": {
-        "lines": [
-          null,
-          1,
-          1,
-          7,
           null,
           null
         ]
@@ -556,6 +556,14 @@
           1,
           1,
           1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
           null,
           1,
           0,
@@ -932,15 +940,6 @@
           0,
           0,
           0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
           0,
           null,
           null,
@@ -956,10 +955,8 @@
           null,
           0,
           0,
-          0,
-          0,
-          0,
-          0,
+          null,
+          null,
           0,
           0,
           0,
@@ -976,6 +973,18 @@
           0,
           0,
           0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
           0,
           null,
           null,
@@ -987,6 +996,16 @@
           0,
           0,
           0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
           0,
           0,
           null,
@@ -1121,6 +1140,6 @@
         }
       }
     },
-    "timestamp": 1708988138
+    "timestamp": 1709066135
   }
 }

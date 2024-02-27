@@ -1,6 +1,6 @@
 class Beer < ApplicationRecord
-  include RatingAverage
   extend TopRank
+  include RatingAverage
 
   validates :name, presence: true
   # validates :style, presence: true
