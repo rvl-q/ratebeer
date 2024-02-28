@@ -87,13 +87,17 @@ class BeerClubsController < ApplicationController
     m.save
   end
 
+  def current_user_confirmed
+    !!Membership.where(user: current_user, beer_club: @beer_club)&.first&.confirmed
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_beer_club
     @beer_club = BeerClub.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
-  def beer_club_params
-    params.require(:beer_club).permit(:name, :founded, :city)
-  end
+  # # Only allow a list of trusted parameters through.
+  # def beer_club_params
+  #   params.require(:beer_club).permit(:name, :founded, :city)
+  # end
 end

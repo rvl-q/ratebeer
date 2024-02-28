@@ -1,5 +1,6 @@
 class MembershipsController < ApplicationController
   before_action :set_membership, only: %i[show edit update destroy]
+  before_action :ensure_that_signed_in, except: [:index, :show]
 
   # GET /memberships or /memberships.json
   def index
@@ -67,11 +68,15 @@ class MembershipsController < ApplicationController
   # Toggle
   def toggle_activity
     membership = Membership.find(params[:id])
-    membership.update_attribute :confirmed, !membership.confirmed
+    if !!Membership.where(user: current_user, beer_club_id: membership.beer_club_id)&.first&.confirmed
+      membership.update_attribute :confirmed, !membership.confirmed
 
-    new_status = membership.confirmed? ? "confirmed" : "pending"
+      new_status = membership.confirmed? ? "confirmed" : "pending"
 
-    redirect_to membership.beer_club, notice: "membership status changed to #{new_status}"
+      redirect_to membership.beer_club, notice: "membership status changed to #{new_status}"
+    else
+      redirect_to membership.beer_club, notice: "only confirmed members can approve new applications #{new_status}"
+    end
   end
 
   private
