@@ -3,6 +3,8 @@ class BeerClubsController < ApplicationController
   before_action :ensure_admin_rights, only: [:destroy]
   before_action :ensure_that_signed_in, except: [:index, :show]
 
+  after_action :add_founder, only: :create
+
   # GET /beer_clubs or /beer_clubs.json
   def index
     @beer_clubs = BeerClub.all
@@ -69,6 +71,21 @@ class BeerClubsController < ApplicationController
   end
 
   private
+
+  # Sign up the founder of a new club as full member
+  def add_founder
+    # p '####################################################################################'
+    # p current_user.username
+    # p @beer_club.name
+    # p current_user.id
+    # p @beer_club.id
+    # p '####################################################################################'
+    m = Membership.new
+    m.user_id = current_user.id
+    m.beer_club_id = @beer_club.id
+    m.confirmed = true
+    m.save
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_beer_club
