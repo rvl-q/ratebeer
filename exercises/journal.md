@@ -58,3 +58,9 @@ rvl@SulonKastike:~/kod/ror/wepa/ratebeer$
 ```
 
 ### Kill VM - long live the VM(!)
+
+Fly.io mostly OK after that.
+
+### Week 7 Task 15, done
+
+Minor troubles to get the link.
